@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0E242049-5115-4A98-AD24-60E310CE3EFA}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Daimler.HELM.TSBAdapter</RootNamespace>
+    <AssemblyName>Daimler.HELM.TSBAdapter</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="amqmdnet, Version=1.0.0.3, Culture=neutral, PublicKeyToken=dd3cb1c9aae9ec97, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\dll Library\amqmdnet.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Messaging" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MessageHandler.cs" />
+    <Compile Include="TSBMain.cs" />
+    <Compile Include="MessageQ\SMSTSBQueue.cs" />
+    <Compile Include="MessageTSBService.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MessageTSBService.Designer.cs">
+      <DependentUpon>MessageTSBService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectInstaller.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ProjectInstaller.Designer.cs">
+      <DependentUpon>ProjectInstaller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Daimler.HELM.Adapter.Logic\Daimler.HELM.Adapter.Logic.csproj">
+      <Project>{dfc4694b-4707-4a7f-9a49-734b6f7880f5}</Project>
+      <Name>Daimler.HELM.Adapter.Logic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Daimler.HELM.AppService.Contract\Daimler.HELM.HubService.Contract.csproj">
+      <Project>{9338a7c9-13aa-4d5c-a34d-93a8312c745c}</Project>
+      <Name>Daimler.HELM.HubService.Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Daimler.HELM.AppService.Logic\Daimler.HELM.HubService.Logic.csproj">
+      <Project>{649df2f7-eefa-4a6f-9435-08fffb2f6630}</Project>
+      <Name>Daimler.HELM.HubService.Logic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Daimler.HELM.BizObjects\Daimler.HELM.BizObjects.csproj">
+      <Project>{325c1225-94d0-4c92-9e72-3dd2cde41df2}</Project>
+      <Name>Daimler.HELM.BizObjects</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Daimler.HELM.Common\Daimler.HELM.Common.csproj">
+      <Project>{6c80d3a5-b22d-4f04-9c7e-568eae60ebaa}</Project>
+      <Name>Daimler.HELM.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Daimler.HELM.Control\Daimler.HELM.Control.csproj">
+      <Project>{b709d7f6-49ec-4a06-acb2-84843b0e43a4}</Project>
+      <Name>Daimler.HELM.Control</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Daimler.HELM.Log\Daimler.HELM.Log.csproj">
+      <Project>{b42c1211-a1b0-43ee-bdb7-ef07613fe831}</Project>
+      <Name>Daimler.HELM.Log</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Daimler.HELM.MessageQueue\Daimler.HELM.MQ.csproj">
+      <Project>{32146a80-6e96-4289-ae48-4530522a4fee}</Project>
+      <Name>Daimler.HELM.MQ</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ProjectInstaller.resx">
+      <DependentUpon>ProjectInstaller.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
