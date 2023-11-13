@@ -1,0 +1,62 @@
+﻿ .titleDesc {
+            text-align: left;
+            font-size: 1.25em;
+            color: #71AED7;
+            padding-left: 0.5em;
+            display: block;
+            height: 1.5em;
+        }
+
+        .itemDiv {
+            text-align: center;
+            padding:0 0 0 0;
+            width:90%;
+            margin:0 5% 1em 5%;
+
+        }
+
+        .normallabel {
+            border: 0;
+            outline: none;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+            -webkit-text-size-adjust: 100%;
+            height: 1.5em;
+            text-align: left;
+            padding: 0;
+            color: #ccc;
+            text-align: left;
+            width: 100%;
+            display: block;
+            margin-left: 5%;
+        }
+
+        
+      
+
+        .infoLab {
+            font-size: 0.75em;
+            color: white;
+            height: 1em;
+            line-height: 1em;
+            vertical-align: central;
+            margin-bottom: 1em;
+            display: block;
+            width: 90%;
+            text-align: left;
+            margin-left: 1em;
+        }
+
+        .link, .link:hover, .link:visited {
+            color: #71AED7;
+        }
+
+        #labErrorMsg {
+            width: 94%;
+            text-align: left;
+            padding: 0.5em 1em 0.5em 1em;
+            color: red;
+            font-size: 1em;
+            display: block;
+        }
