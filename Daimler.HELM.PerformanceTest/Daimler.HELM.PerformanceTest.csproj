@@ -1,0 +1,396 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1018B162-795E-4786-997C-DB9886A9F40A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Daimler.HELM.PerformanceTest</RootNamespace>
+    <AssemblyName>Daimler.HELM.PerformanceTest</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TestProjectType>WebTest</TestProjectType>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
+    <IsCodedUITest>False</IsCodedUITest>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.LoadTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <CodeAnalysisDependentAssemblyPaths Condition=" '$(VS100COMNTOOLS)' != '' " Include="$(VS100COMNTOOLS)..\IDE\PrivateAssemblies">
+      <Visible>False</Visible>
+    </CodeAnalysisDependentAssemblyPaths>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EP_Email_Test\EP_Email_Batch_Send.cs" />
+    <Compile Include="EP_Email_Test\EP_Email_Sing_Send.cs" />
+    <Compile Include="EP_LMS_Test\EP_LMS_Sing_Send.cs" />
+    <Compile Include="EP_MMS_Test\EP_MMS_Batch_Send.cs" />
+    <Compile Include="EP_MMS_Test\EP_MMS_SingleSend.cs" />
+    <Compile Include="EP_SMS_Test\EP_SMS_BatchSend.cs" />
+    <Compile Include="EP_SMS_Test\EP_SMS_SingleSend.cs" />
+    <Compile Include="LogPerformanceData.cs" />
+    <Compile Include="PerformanceTest.cs" />
+    <Compile Include="POS_SMS_Test\Pos_SMS_SingleSend.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\SendEmailService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\SendLMSService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="TSB_SMS_Test\TSB_SMS_Single_Send.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="EP_Email_Test\EP_Email_Batch_Send_CWNewCarEDMNSend.loadtest">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EP_Email_Test\EP_Email_Batch_Send_CWInvitationEDMNSend.loadtest">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EP_Email_Test\EP_Email_Sing_Send.loadtest">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EP_MMS_Test\EP_MMS_Batch_Send_CWNewCarMMSNSend.loadtest">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EP_MMS_Test\EP_MMS_Batch_Send_CWInvitationMMSNSend.loadtest">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EP_MMS_Test\EP_MMS_Batch_Send_CWCampaignMMSNSend.loadtest">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EP_MMS_Test\EP_MMS_SingleSend_CWIBMMS1Send.loadtest">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EP_SMS_Test\EP_SMS_BatchSend_CWNewCarSMSNSend.loadtest">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EP_SMS_Test\EP_SMS_BatchSend_CWInvitationSMSNSend.loadtest">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EP_SMS_Test\EP_SMS_SingleSend_CWIBSurveySMS1Send.loadtest">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EP_SMS_Test\EP_SMS_SingleSend_CWIBSMS1Send.loadtest">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="POS_SMS_Test\Pos_SMS_SingleSend_PoSLeadNotifi.loadtest">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="POS_SMS_Test\Pos_SMS_SingleSend_PoSCustomerfollowup.loadtest">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="POS_SMS_Test\Pos_SMS_SingleSend_PoSInformationConfirm.loadtest">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Service References\SendEmailService\Daimler.HELM.PerformanceTest.SendEmailService.hiResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SendEmailService\Daimler.HELM.PerformanceTest.SendEmailService.postxmlResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SendEmailService\Daimler.HELM.PerformanceTest.SendEmailService.pushResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SendEmailService\SendEmail.wsdl" />
+    <None Include="Service References\SendLMSService\Cmcc_mas_wbsSoapBinding.wsdl" />
+    <None Include="Service References\SendLMSService\Daimler.HELM.PerformanceTest.SendLMSService.AlarmRsp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SendLMSService\Daimler.HELM.PerformanceTest.SendLMSService.APLogOutResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SendLMSService\Daimler.HELM.PerformanceTest.SendLMSService.APLogOutRsp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SendLMSService\Daimler.HELM.PerformanceTest.SendLMSService.APRegistrationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SendLMSService\Daimler.HELM.PerformanceTest.SendLMSService.APRegistrationRsp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SendLMSService\Daimler.HELM.PerformanceTest.SendLMSService.APStatusRepResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SendLMSService\Daimler.HELM.PerformanceTest.SendLMSService.APStatusRepRsp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SendLMSService\Daimler.HELM.PerformanceTest.SendLMSService.APSvcAlarmResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SendLMSService\Daimler.HELM.PerformanceTest.SendLMSService.APSvcAuthenticResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SendLMSService\Daimler.HELM.PerformanceTest.SendLMSService.APSvcAuthenticRsp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SendLMSService\Daimler.HELM.PerformanceTest.SendLMSService.APSvcPerfCmdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SendLMSService\Daimler.HELM.PerformanceTest.SendLMSService.APSvcPerfReportResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SendLMSService\Daimler.HELM.PerformanceTest.SendLMSService.DeliveryInformation.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SendLMSService\Daimler.HELM.PerformanceTest.SendLMSService.DeliveryInformation1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SendLMSService\Daimler.HELM.PerformanceTest.SendLMSService.DeliveryInformation2.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SendLMSService\Daimler.HELM.PerformanceTest.SendLMSService.EndNotificationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SendLMSService\Daimler.HELM.PerformanceTest.SendLMSService.endUssdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SendLMSService\Daimler.HELM.PerformanceTest.SendLMSService.getLocationForGroupResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SendLMSService\Daimler.HELM.PerformanceTest.SendLMSService.getLocationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SendLMSService\Daimler.HELM.PerformanceTest.SendLMSService.getLocationResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SendLMSService\Daimler.HELM.PerformanceTest.SendLMSService.getMessageDeliveryStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SendLMSService\Daimler.HELM.PerformanceTest.SendLMSService.getMessageResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SendLMSService\Daimler.HELM.PerformanceTest.SendLMSService.getMessageResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SendLMSService\Daimler.HELM.PerformanceTest.SendLMSService.getPushDeliveryStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SendLMSService\Daimler.HELM.PerformanceTest.SendLMSService.getReceivedMessagesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SendLMSService\Daimler.HELM.PerformanceTest.SendLMSService.GetReceivedSmsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SendLMSService\Daimler.HELM.PerformanceTest.SendLMSService.GetSmsDeliveryStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SendLMSService\Daimler.HELM.PerformanceTest.SendLMSService.handleUssdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SendLMSService\Daimler.HELM.PerformanceTest.SendLMSService.handleUssdResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SendLMSService\Daimler.HELM.PerformanceTest.SendLMSService.LocationData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SendLMSService\Daimler.HELM.PerformanceTest.SendLMSService.LocationEndResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SendLMSService\Daimler.HELM.PerformanceTest.SendLMSService.LocationErrorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SendLMSService\Daimler.HELM.PerformanceTest.SendLMSService.LocationNotificationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SendLMSService\Daimler.HELM.PerformanceTest.SendLMSService.makeUssdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SendLMSService\Daimler.HELM.PerformanceTest.SendLMSService.makeUssdResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SendLMSService\Daimler.HELM.PerformanceTest.SendLMSService.MessageReference.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SendLMSService\Daimler.HELM.PerformanceTest.SendLMSService.notifyMessageDeliveryReceiptResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SendLMSService\Daimler.HELM.PerformanceTest.SendLMSService.notifyMessageReceptionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SendLMSService\Daimler.HELM.PerformanceTest.SendLMSService.notifyPushDeliveryReceiptResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SendLMSService\Daimler.HELM.PerformanceTest.SendLMSService.notifySmsDeliveryStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SendLMSService\Daimler.HELM.PerformanceTest.SendLMSService.notifySmsReceptionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SendLMSService\Daimler.HELM.PerformanceTest.SendLMSService.notifyUssdEndResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SendLMSService\Daimler.HELM.PerformanceTest.SendLMSService.PauseAPResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SendLMSService\Daimler.HELM.PerformanceTest.SendLMSService.PauseAPRsp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SendLMSService\Daimler.HELM.PerformanceTest.SendLMSService.RecoveryAPResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SendLMSService\Daimler.HELM.PerformanceTest.SendLMSService.RecoveryAPRsp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SendLMSService\Daimler.HELM.PerformanceTest.SendLMSService.sendMessageResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SendLMSService\Daimler.HELM.PerformanceTest.SendLMSService.sendMessageResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SendLMSService\Daimler.HELM.PerformanceTest.SendLMSService.sendPushResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SendLMSService\Daimler.HELM.PerformanceTest.SendLMSService.sendPushResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SendLMSService\Daimler.HELM.PerformanceTest.SendLMSService.sendSmsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SendLMSService\Daimler.HELM.PerformanceTest.SendLMSService.sendSmsResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SendLMSService\Daimler.HELM.PerformanceTest.SendLMSService.SMSMessage.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SendLMSService\Daimler.HELM.PerformanceTest.SendLMSService.startNotificationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SendLMSService\Daimler.HELM.PerformanceTest.SendLMSService.startPeriodicNotificationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SendLMSService\Daimler.HELM.PerformanceTest.SendLMSService.startPeriodicNotificationResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SendLMSService\Daimler.HELM.PerformanceTest.SendLMSService.stopNotificationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SendLMSService\Daimler.HELM.PerformanceTest.SendLMSService.ussdContinueResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SendLMSService\Daimler.HELM.PerformanceTest.SendLMSService.ussdContinueResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="TSB_SMS_Test\TSB_SMS_Single_Send_TSBNotifi.loadtest">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TSB_SMS_Test\TSB_SMS_Single_Send_TSBInterPhoneNumber.loadtest">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TSB_SMS_Test\TSB_SMS_Single_Send_CIAMNotifi.loadtest">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Daimler.HELM.UnitTest\Daimler.HELM.UnitTest.csproj">
+      <Project>{f7b87e9e-cd6d-4ddd-9b37-b14251c4b8fb}</Project>
+      <Name>Daimler.HELM.UnitTest</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\SendEmailService\" />
+    <WCFMetadataStorage Include="Service References\SendLMSService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SendEmailService\SendEmail.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SendEmailService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SendEmailService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SendEmailService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SendLMSService\Cmcc_mas_wbsSoapBinding.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SendLMSService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SendLMSService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SendLMSService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="EP_MMS_Test\EP_LMS_Test\" />
+  </ItemGroup>
+  <Choose>
+    <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.CodedUITestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Extension, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITesting, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
