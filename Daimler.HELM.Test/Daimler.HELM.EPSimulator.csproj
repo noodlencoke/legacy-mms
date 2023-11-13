@@ -1,0 +1,391 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AFE0A078-4395-4AD5-937C-77541F10CBF8}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Daimler.HELM.Test</RootNamespace>
+    <AssemblyName>Daimler.HELM.Test</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Messaging" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\EPSendEmail\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\LMSSendService2\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="TestObj.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Service References\EPSendEmail\Daimler.HELM.Test.EPSendEmail.hiResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\EPSendEmail\Daimler.HELM.Test.EPSendEmail.postxmlResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\EPSendEmail\Daimler.HELM.Test.EPSendEmail.pushResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\EPSendEmail\SendEmail.wsdl" />
+    <None Include="Service References\LMSSendService2\Cmcc_mas_wbsSoapBinding.wsdl" />
+    <None Include="Service References\LMSSendService2\Daimler.HELM.Test.LMSSendService2.AlarmRsp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LMSSendService2\Daimler.HELM.Test.LMSSendService2.APLogOutResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LMSSendService2\Daimler.HELM.Test.LMSSendService2.APLogOutRsp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LMSSendService2\Daimler.HELM.Test.LMSSendService2.APRegistrationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LMSSendService2\Daimler.HELM.Test.LMSSendService2.APRegistrationRsp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LMSSendService2\Daimler.HELM.Test.LMSSendService2.APStatusRepResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LMSSendService2\Daimler.HELM.Test.LMSSendService2.APStatusRepRsp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LMSSendService2\Daimler.HELM.Test.LMSSendService2.APSvcAlarmResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LMSSendService2\Daimler.HELM.Test.LMSSendService2.APSvcAuthenticResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LMSSendService2\Daimler.HELM.Test.LMSSendService2.APSvcAuthenticRsp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LMSSendService2\Daimler.HELM.Test.LMSSendService2.APSvcPerfCmdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LMSSendService2\Daimler.HELM.Test.LMSSendService2.APSvcPerfReportResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LMSSendService2\Daimler.HELM.Test.LMSSendService2.DeliveryInformation.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LMSSendService2\Daimler.HELM.Test.LMSSendService2.DeliveryInformation1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LMSSendService2\Daimler.HELM.Test.LMSSendService2.DeliveryInformation2.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LMSSendService2\Daimler.HELM.Test.LMSSendService2.EndNotificationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LMSSendService2\Daimler.HELM.Test.LMSSendService2.endUssdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LMSSendService2\Daimler.HELM.Test.LMSSendService2.getLocationForGroupResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LMSSendService2\Daimler.HELM.Test.LMSSendService2.getLocationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LMSSendService2\Daimler.HELM.Test.LMSSendService2.getLocationResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LMSSendService2\Daimler.HELM.Test.LMSSendService2.getMessageDeliveryStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LMSSendService2\Daimler.HELM.Test.LMSSendService2.getMessageResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LMSSendService2\Daimler.HELM.Test.LMSSendService2.getMessageResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LMSSendService2\Daimler.HELM.Test.LMSSendService2.getPushDeliveryStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LMSSendService2\Daimler.HELM.Test.LMSSendService2.getReceivedMessagesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LMSSendService2\Daimler.HELM.Test.LMSSendService2.GetReceivedSmsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LMSSendService2\Daimler.HELM.Test.LMSSendService2.GetSmsDeliveryStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LMSSendService2\Daimler.HELM.Test.LMSSendService2.handleUssdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LMSSendService2\Daimler.HELM.Test.LMSSendService2.handleUssdResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LMSSendService2\Daimler.HELM.Test.LMSSendService2.LocationData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LMSSendService2\Daimler.HELM.Test.LMSSendService2.LocationEndResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LMSSendService2\Daimler.HELM.Test.LMSSendService2.LocationErrorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LMSSendService2\Daimler.HELM.Test.LMSSendService2.LocationNotificationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LMSSendService2\Daimler.HELM.Test.LMSSendService2.makeUssdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LMSSendService2\Daimler.HELM.Test.LMSSendService2.makeUssdResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LMSSendService2\Daimler.HELM.Test.LMSSendService2.MessageReference.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LMSSendService2\Daimler.HELM.Test.LMSSendService2.notifyMessageDeliveryReceiptResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LMSSendService2\Daimler.HELM.Test.LMSSendService2.notifyMessageReceptionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LMSSendService2\Daimler.HELM.Test.LMSSendService2.notifyPushDeliveryReceiptResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LMSSendService2\Daimler.HELM.Test.LMSSendService2.notifySmsDeliveryStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LMSSendService2\Daimler.HELM.Test.LMSSendService2.notifySmsReceptionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LMSSendService2\Daimler.HELM.Test.LMSSendService2.notifyUssdEndResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LMSSendService2\Daimler.HELM.Test.LMSSendService2.PauseAPResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LMSSendService2\Daimler.HELM.Test.LMSSendService2.PauseAPRsp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LMSSendService2\Daimler.HELM.Test.LMSSendService2.RecoveryAPResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LMSSendService2\Daimler.HELM.Test.LMSSendService2.RecoveryAPRsp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LMSSendService2\Daimler.HELM.Test.LMSSendService2.sendMessageResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LMSSendService2\Daimler.HELM.Test.LMSSendService2.sendMessageResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LMSSendService2\Daimler.HELM.Test.LMSSendService2.sendPushResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LMSSendService2\Daimler.HELM.Test.LMSSendService2.sendPushResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LMSSendService2\Daimler.HELM.Test.LMSSendService2.sendSmsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LMSSendService2\Daimler.HELM.Test.LMSSendService2.sendSmsResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LMSSendService2\Daimler.HELM.Test.LMSSendService2.SMSMessage.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LMSSendService2\Daimler.HELM.Test.LMSSendService2.startNotificationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LMSSendService2\Daimler.HELM.Test.LMSSendService2.startPeriodicNotificationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LMSSendService2\Daimler.HELM.Test.LMSSendService2.startPeriodicNotificationResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LMSSendService2\Daimler.HELM.Test.LMSSendService2.stopNotificationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LMSSendService2\Daimler.HELM.Test.LMSSendService2.ussdContinueResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\LMSSendService2\Daimler.HELM.Test.LMSSendService2.ussdContinueResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Daimler.HELM.Adapter.Logic\Daimler.HELM.Adapter.Logic.csproj">
+      <Project>{dfc4694b-4707-4a7f-9a49-734b6f7880f5}</Project>
+      <Name>Daimler.HELM.Adapter.Logic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Daimler.HELM.AppService.Contract\Daimler.HELM.HubService.Contract.csproj">
+      <Project>{9338a7c9-13aa-4d5c-a34d-93a8312c745c}</Project>
+      <Name>Daimler.HELM.HubService.Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Daimler.HELM.AppService.Logic\Daimler.HELM.HubService.Logic.csproj">
+      <Project>{649df2f7-eefa-4a6f-9435-08fffb2f6630}</Project>
+      <Name>Daimler.HELM.HubService.Logic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Daimler.HELM.BizObjects\Daimler.HELM.BizObjects.csproj">
+      <Project>{325c1225-94d0-4c92-9e72-3dd2cde41df2}</Project>
+      <Name>Daimler.HELM.BizObjects</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Daimler.HELM.Common\Daimler.HELM.Common.csproj">
+      <Project>{6c80d3a5-b22d-4f04-9c7e-568eae60ebaa}</Project>
+      <Name>Daimler.HELM.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Daimler.HELM.EmailInterface\Daimler.HELM.EmailInterface.csproj">
+      <Project>{16214514-5720-4800-bd18-6fe5bcedc6ed}</Project>
+      <Name>Daimler.HELM.EmailInterface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Daimler.HELM.LMSAdapter\Daimler.HELM.LMSAdapter.csproj">
+      <Project>{98515229-1b7b-469d-adc1-0497406b69f3}</Project>
+      <Name>Daimler.HELM.LMSAdapter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Daimler.HELM.Log\Daimler.HELM.Log.csproj">
+      <Project>{b42c1211-a1b0-43ee-bdb7-ef07613fe831}</Project>
+      <Name>Daimler.HELM.Log</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Daimler.HELM.MessageQueueReply\Daimler.HELM.MessageQueueReply.csproj">
+      <Project>{d7f336c5-9c13-42dc-8916-82ca63d3df5f}</Project>
+      <Name>Daimler.HELM.MessageQueueReply</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Daimler.HELM.MessageQueue\Daimler.HELM.MQ.csproj">
+      <Project>{32146a80-6e96-4289-ae48-4530522a4fee}</Project>
+      <Name>Daimler.HELM.MQ</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Daimler.HELM.PublicService\Daimler.HELM.PublicService.csproj">
+      <Project>{1e6ce900-4cc3-492d-9f4b-ffc59a2a0075}</Project>
+      <Name>Daimler.HELM.PublicService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Daimler.HELM.VendorInterface\Daimler.HELM.MessageInterface.csproj">
+      <Project>{0ee3f3dc-4839-411f-a01f-cb788135647e}</Project>
+      <Name>Daimler.HELM.MessageInterface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Daimler.HELM.WechatInterface\Daimler.HELM.WechatInterface.csproj">
+      <Project>{b4a00525-50c1-485a-9c14-9408b5247215}</Project>
+      <Name>Daimler.HELM.WechatInterface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Daimler.HELM.XXVendor\Daimler.HELM.MessageInterface.Impl.csproj">
+      <Project>{db584bcf-24c4-416f-b68c-3470d2b3e0a9}</Project>
+      <Name>Daimler.HELM.MessageInterface.Impl</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\EPSendEmail\" />
+    <WCFMetadataStorage Include="Service References\LMSSendService2\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\LMSSendService2\Cmcc_mas_wbsSoapBinding.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\LMSSendService2\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\LMSSendService2\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\LMSSendService2\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\EPSendEmail\SendEmail.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\EPSendEmail\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\EPSendEmail\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\EPSendEmail\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

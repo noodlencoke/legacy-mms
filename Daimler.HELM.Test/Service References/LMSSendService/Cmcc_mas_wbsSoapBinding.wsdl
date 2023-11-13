@@ -1,0 +1,1791 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:s4="http://www.csapi.org/schema/mms" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s5="http://www.csapi.org/schema/location" xmlns:s1="http://www.csapi.org/schema/common/v2_0" xmlns:s0="http://www.csapi.org/schema/ap" xmlns:s6="http://www.csapi.org/schema/wap" xmlns:s2="http://www.csapi.org/schema/notification" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s7="http://www.csapi.org/schema/ussd" xmlns:s3="http://www.csapi.org/schema/sms" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.csapi.org/schema/ap">
+      <s:import namespace="http://www.csapi.org/schema/common/v2_0" />
+      <s:element name="APRegistrationReq">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="Apid" nillable="true" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="APPid" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="HostIP" nillable="true" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="unbounded" form="unqualified" name="MessageNotification" nillable="true" type="s1:MessageNotificationType" />
+            <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="APWSURI" type="s:anyURI" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="APRegistrationRsp">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="RegResult" nillable="true" type="s0:APRegResult" />
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="NextInterval" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="APRegResult">
+        <s:restriction base="s:string">
+          <s:enumeration value="success" />
+          <s:enumeration value="illegalAP" />
+          <s:enumeration value="CMAbilityNotSup" />
+          <s:enumeration value="repeatedReg" />
+          <s:enumeration value="svcAddrMismatch" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="APStatusRepReq">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="APid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="APStatus" type="s0:APStatusType" />
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="APPid" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="APStatusType">
+        <s:restriction base="s:string">
+          <s:enumeration value="Normal" />
+          <s:enumeration value="OutofActiveTime" />
+          <s:enumeration value="NeedRegistration" />
+          <s:enumeration value="OutofService" />
+          <s:enumeration value="Paused" />
+          <s:enumeration value="Closed" />
+          <s:enumeration value="WaitingforConfirm" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="APStatusRepRsp">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="NextCommand" nillable="true" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="NextInterval" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="unbounded" form="unqualified" name="ApSvcAuthType" nillable="true" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="unbounded" form="unqualified" name="ApSvcPerfCmdType" nillable="true" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="APLogOutReq">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="APid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="APPid" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="APLogOutRsp">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="LogoutResult" nillable="true" type="s0:APLogoutResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="APLogoutResult">
+        <s:restriction base="s:string">
+          <s:enumeration value="success" />
+          <s:enumeration value="fail" />
+          <s:enumeration value="illegalAPid" />
+          <s:enumeration value="repeatedLogout" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="PauseAPReq">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="APid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PauseAPRsp">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="ACK" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RecoveryAPReq">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="APid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RecoveryAPRsp">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="ACK" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="APSvcAuthenticReq">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="APid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="ApSvcAuthType" nillable="true" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="APSvcAuthenticRsp">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="APid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="ApSvcAuthResult" nillable="true" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="APSvcPerfCmdReq">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="APid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="ApSvcPerfCmdType" nillable="true" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AlarmReq">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="alarmId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="orgseverity" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="orgtype" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="probablecause" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="eventTime" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="ackTime" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="clearTime" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="activestatus" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="alarmtitle" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="alarmText" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AlarmRsp">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="recode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="reMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="APSvcPerfReportReq">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="APid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="ApSvcPerfData" nillable="true" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.csapi.org/schema/common/v2_0">
+      <s:complexType name="MessageNotificationType">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="CMAbility" type="s1:CMAbility" />
+          <s:element minOccurs="0" maxOccurs="unbounded" form="unqualified" name="WSURI" type="s:anyURI" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="CMAbility">
+        <s:restriction base="s:string">
+          <s:enumeration value="SMSAbility" />
+          <s:enumeration value="MMSAbility" />
+          <s:enumeration value="WAPAbility" />
+          <s:enumeration value="USSDAbility" />
+          <s:enumeration value="LBSAbility" />
+          <s:enumeration value="GPRSAbility" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="TimeMetric">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="Metric" nillable="true" type="s1:TimeMetricsValues" />
+          <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="Units" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="TimeMetricsValues">
+        <s:restriction base="s:string">
+          <s:enumeration value="Millisecond" />
+          <s:enumeration value="Second" />
+          <s:enumeration value="Minute" />
+          <s:enumeration value="Hour" />
+          <s:enumeration value="Day" />
+          <s:enumeration value="Week" />
+          <s:enumeration value="Month" />
+          <s:enumeration value="Year" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ServiceError">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="MessageId" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="Text" nillable="true" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" form="unqualified" name="Variables" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.csapi.org/schema/notification">
+      <s:import namespace="http://www.csapi.org/schema/common/v2_0" />
+      <s:element name="startNotificationRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="ApplicationId" nillable="true" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="unbounded" form="unqualified" name="MessageNotification" nillable="true" type="s1:MessageNotificationType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="stopNotificationRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="ApplicationId" nillable="true" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.csapi.org/schema/sms">
+      <s:element name="sendSmsRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="ApplicationID" nillable="true" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="unbounded" form="unqualified" name="DestinationAddresses" nillable="true" type="s:anyURI" />
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="ExtendCode" nillable="true" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="Message" nillable="true" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="MessageFormat" nillable="true" type="s3:MessageFormat" />
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="SendMethod" nillable="true" type="s3:SendMethodType" />
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="DeliveryResultRequest" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="MessageFormat">
+        <s:restriction base="s:string">
+          <s:enumeration value="ASCII" />
+          <s:enumeration value="UCS2" />
+          <s:enumeration value="GB18030" />
+          <s:enumeration value="GB2312" />
+          <s:enumeration value="Binary" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="SendMethodType">
+        <s:restriction base="s:string">
+          <s:enumeration value="Normal" />
+          <s:enumeration value="Instant" />
+          <s:enumeration value="Long" />
+          <s:enumeration value="Structured" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="sendSmsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="RequestIdentifier" nillable="true" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="notifySmsDeliveryStatusRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="RequestIdentifier" nillable="true" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="unbounded" form="unqualified" name="DeliveryInformation" nillable="true" type="s3:DeliveryInformation" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="DeliveryInformation">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="Address" nillable="true" type="s:anyURI" />
+          <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="DeliveryStatus" nillable="true" type="s3:DeliveryStatus" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="DeliveryStatus">
+        <s:restriction base="s:string">
+          <s:enumeration value="Delivered" />
+          <s:enumeration value="DeliveryUncertain" />
+          <s:enumeration value="DeliveryImpossible" />
+          <s:enumeration value="MessageWaiting" />
+          <s:enumeration value="DeliveryToTerminal" />
+          <s:enumeration value="DeliveryNotificationNotSupported" />
+          <s:enumeration value="KeyWordFilterFailed" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="GetReceivedSmsRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="ApplicationID" nillable="true" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReceivedSmsResponse" type="s3:ArrayOfSMSMessage" />
+      <s:complexType name="ArrayOfSMSMessage">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" form="unqualified" name="item" type="s3:SMSMessage" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SMSMessage">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="Message" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="SmsServiceActivationNumber" nillable="true" type="s:anyURI" />
+          <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="SenderAddress" nillable="true" type="s:anyURI" />
+          <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="MessageFormat" nillable="true" type="s3:MessageFormat" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetSmsDeliveryStatusRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="ApplicationID" nillable="true" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="RequestIdentifier" nillable="true" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSmsDeliveryStatusResponse" type="s3:ArrayOfDeliveryInformation" />
+      <s:complexType name="ArrayOfDeliveryInformation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" form="unqualified" name="item" type="s3:DeliveryInformation" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="notifySmsReceptionRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="Message" nillable="true" type="s3:SMSMessage" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.csapi.org/schema/mms">
+      <s:element name="sendMessageRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="ApplicationID" nillable="true" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="unbounded" form="unqualified" name="addresses" type="s:anyURI" />
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="ExtendCode" nillable="true" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="subject" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="priority" type="s4:MessagePriority" />
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="receiptRequest" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="Content" nillable="true" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="MessagePriority">
+        <s:restriction base="s:string">
+          <s:enumeration value="Default" />
+          <s:enumeration value="Low" />
+          <s:enumeration value="Normal" />
+          <s:enumeration value="High" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="sendMessageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="requestIdentifier" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getMessageDeliveryStatusRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="ApplicationID" nillable="true" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="requestIdentifier" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getMessageDeliveryStatusResponse" type="s4:ArrayOfDeliveryInformation" />
+      <s:complexType name="ArrayOfDeliveryInformation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" form="unqualified" name="item" type="s4:DeliveryInformation" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DeliveryInformation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="address" type="s:anyURI" />
+          <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="deliveryStatus" type="s4:DeliveryStatus" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="DeliveryStatus">
+        <s:restriction base="s:string">
+          <s:enumeration value="DeliveredToNetwork" />
+          <s:enumeration value="DeliveryUncertain" />
+          <s:enumeration value="DeliveryImpossible" />
+          <s:enumeration value="MessageWaiting" />
+          <s:enumeration value="DeliveredToTerminal" />
+          <s:enumeration value="DeliveryNotificationNotSupported" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="getReceivedMessagesRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="ApplicationID" nillable="true" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="priority" type="s4:MessagePriority" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getReceivedMessagesResponse" type="s4:ArrayOfMessageReference" />
+      <s:complexType name="ArrayOfMessageReference">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" form="unqualified" name="item" type="s4:MessageReference" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MessageReference">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="messageIdentifier" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="messageServiceActivationNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="senderAddress" type="s:anyURI" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="subject" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="priority" type="s4:MessagePriority" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="message" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="dateTime" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getMessageRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="ApplicationID" nillable="true" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="messageRefIdentifier" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getMessageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="mmsMessage" type="s4:MmsMessage" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="MmsMessage">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="bodyText" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="content" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="notifyMessageReceptionRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="ApplicationID" nillable="true" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="message" type="s4:MessageReference" />
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="Content" nillable="true" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="notifyMessageDeliveryReceiptRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="correlator" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="unbounded" form="unqualified" name="deliveryStatus" type="s4:DeliveryInformation" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.csapi.org/schema/location">
+      <s:import namespace="http://www.csapi.org/schema/common/v2_0" />
+      <s:element name="getLocationRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="Requester" nillable="true" type="s:anyURI" />
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="Address" nillable="true" type="s:anyURI" />
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="RequestedAccuracy" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="AcceptableAccuracy" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="MaximumAge" nillable="true" type="s1:TimeMetric" />
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="ResponseTime" nillable="true" type="s1:TimeMetric" />
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="Tolerance" nillable="true" type="s5:DelayTolerance" />
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="ApplicationId" nillable="true" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="serviceType" type="s5:ServiceType" />
+            <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="crs" type="s5:CoordinateReferenceSystem" />
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="locType" type="s5:LocType" />
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="prio" type="s5:Priority" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="DelayTolerance">
+        <s:restriction base="s:string">
+          <s:enumeration value="NoDelay" />
+          <s:enumeration value="LowDelay" />
+          <s:enumeration value="DelayTolerant" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="ServiceType">
+        <s:restriction base="s:string">
+          <s:enumeration value="STANDARD" />
+          <s:enumeration value="EMERGENCY" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="CoordinateReferenceSystem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="codeSpace" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="edition" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="LocType">
+        <s:restriction base="s:string">
+          <s:enumeration value="CURRENT" />
+          <s:enumeration value="LAST" />
+          <s:enumeration value="CURRENT_OR_LAST" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="Priority">
+        <s:restriction base="s:string">
+          <s:enumeration value="NORMAL" />
+          <s:enumeration value="HIGH" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="getLocationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="Result" nillable="true" type="s5:LocationInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="LocationInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="Latitude" type="s:float" />
+          <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="Longitude" type="s:float" />
+          <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="Altitude" type="s:float" />
+          <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="Accuracy" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="Timestamp" nillable="true" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getLocationForGroupRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="Requester" nillable="true" type="s:anyURI" />
+            <s:element minOccurs="0" maxOccurs="unbounded" form="unqualified" name="Addresses" nillable="true" type="s:anyURI" />
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="RequestedAccuracy" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="AcceptableAccuracy" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="MaximumAge" nillable="true" type="s1:TimeMetric" />
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="ResponseTime" nillable="true" type="s1:TimeMetric" />
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="Tolerance" nillable="true" type="s5:DelayTolerance" />
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="ApplicationId" nillable="true" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="serviceType" type="s5:ServiceType" />
+            <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="crs" type="s5:CoordinateReferenceSystem" />
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="locType" type="s5:LocType" />
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="prio" type="s5:Priority" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getLocationForGroupResponse" type="s5:ArrayOfLocationData" />
+      <s:complexType name="ArrayOfLocationData">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" form="unqualified" name="item" type="s5:LocationData" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="LocationData">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="Address" nillable="true" type="s:anyURI" />
+          <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="ReportStatus" nillable="true" type="s5:RetrievalStatus" />
+          <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="CurrentLocation" nillable="true" type="s5:LocationInfo" />
+          <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="ErrorInformation" nillable="true" type="s1:ServiceError" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="RetrievalStatus">
+        <s:restriction base="s:string">
+          <s:enumeration value="Retrieved" />
+          <s:enumeration value="NotRetrieved" />
+          <s:enumeration value="Error" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="startPeriodicNotificationRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="Requester" nillable="true" type="s:anyURI" />
+            <s:element minOccurs="0" maxOccurs="unbounded" form="unqualified" name="Addresses" nillable="true" type="s:anyURI" />
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="RequestedAccuracy" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="Frequency" nillable="true" type="s1:TimeMetric" />
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="Duration" nillable="true" type="s1:TimeMetric" />
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="ApplicationId" nillable="true" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="serviceType" type="s5:ServiceType" />
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="Crs" nillable="true" type="s5:CoordinateReferenceSystem" />
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="locType" type="s5:LocType" />
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="prio" type="s5:Priority" />
+            <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="eventNotification" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="startPeriodicNotificationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="correlator" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EndNotificationRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="ApplicationId" nillable="true" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="correlator" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LocationNotificationRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="correlator" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="unbounded" form="unqualified" name="data" type="s5:LocationData" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LocationErrorRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="correlator" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="Address" nillable="true" type="s:anyURI" />
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="Reason" nillable="true" type="s1:ServiceError" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LocationEndRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="correlator" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.csapi.org/schema/wap">
+      <s:element name="sendPushRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="ApplicationID" nillable="true" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="unbounded" form="unqualified" name="addresses" type="s:anyURI" />
+            <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="targetURL" type="s:anyURI" />
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="ExtendCode" nillable="true" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="subject" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="receiptRequest" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="sendPushResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="requestIdentifier" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getPushDeliveryStatusRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="ApplicationID" nillable="true" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="requestIdentifier" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getPushDeliveryStatusResponse" type="s6:ArrayOfDeliveryInformation" />
+      <s:complexType name="ArrayOfDeliveryInformation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" form="unqualified" name="item" type="s6:DeliveryInformation" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DeliveryInformation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="address" type="s:anyURI" />
+          <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="status" type="s6:DeliveryStatus" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="DeliveryStatus">
+        <s:restriction base="s:string">
+          <s:enumeration value="DeliveredToNetwork" />
+          <s:enumeration value="DeliveryUncertain" />
+          <s:enumeration value="DeliveryImpossible" />
+          <s:enumeration value="MessageWaiting" />
+          <s:enumeration value="DeliveredToTerminal" />
+          <s:enumeration value="DeliveryNotificationNotSupported" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="notifyPushDeliveryReceiptRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="requestIdentifier" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="unbounded" form="unqualified" name="deliveryStatus" type="s6:DeliveryInformation" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.csapi.org/schema/ussd">
+      <s:element name="makeUssdRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="ApplicationID" nillable="true" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="destinationAddress" type="s:anyURI" />
+            <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="ussdMessage" type="s7:UssdArray" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="UssdArray">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="ussdMessage" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="ussdReturnRequest" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="makeUssdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="ussdIdentifier" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="handleUssdRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="ussdIdentifier" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="senderAddress" type="s:anyURI" />
+            <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="ussdMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="handleUssdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="result" type="s7:UssdArray" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ussdContinueRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="ussdIdentifier" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="ussdMessage" type="s7:UssdArray" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ussdContinueResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="returnMessage" type="s7:UssdArray" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="endUssdRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="ApplicationID" nillable="true" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="UssdMessage" nillable="true" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="UssdIdentifier" nillable="true" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="notifyUssdEndRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" form="unqualified" name="ussdIdentifier" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" form="unqualified" name="endReason" type="s7:EndReason" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="EndReason">
+        <s:restriction base="s:string">
+          <s:enumeration value="UserEnd" />
+          <s:enumeration value="Busy" />
+          <s:enumeration value="UserAbsent" />
+          <s:enumeration value="IllegalEquipment" />
+          <s:enumeration value="SystemError" />
+          <s:enumeration value="TimeOut" />
+        </s:restriction>
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="APRegistrationSoapIn">
+    <wsdl:part name="APRegistrationReq" element="s0:APRegistrationReq" />
+  </wsdl:message>
+  <wsdl:message name="APRegistrationSoapOut">
+    <wsdl:part name="APRegistrationResult" element="s0:APRegistrationRsp" />
+  </wsdl:message>
+  <wsdl:message name="APStatusRepSoapIn">
+    <wsdl:part name="APStatusRepReq" element="s0:APStatusRepReq" />
+  </wsdl:message>
+  <wsdl:message name="APStatusRepSoapOut">
+    <wsdl:part name="APStatusRepResult" element="s0:APStatusRepRsp" />
+  </wsdl:message>
+  <wsdl:message name="APLogOutSoapIn">
+    <wsdl:part name="APLogOutReq" element="s0:APLogOutReq" />
+  </wsdl:message>
+  <wsdl:message name="APLogOutSoapOut">
+    <wsdl:part name="APLogOutResult" element="s0:APLogOutRsp" />
+  </wsdl:message>
+  <wsdl:message name="PauseAPSoapIn">
+    <wsdl:part name="PauseAPReq" element="s0:PauseAPReq" />
+  </wsdl:message>
+  <wsdl:message name="PauseAPSoapOut">
+    <wsdl:part name="PauseAPResult" element="s0:PauseAPRsp" />
+  </wsdl:message>
+  <wsdl:message name="RecoveryAPSoapIn">
+    <wsdl:part name="RecoveryAPReq" element="s0:RecoveryAPReq" />
+  </wsdl:message>
+  <wsdl:message name="RecoveryAPSoapOut">
+    <wsdl:part name="RecoveryAPResult" element="s0:RecoveryAPRsp" />
+  </wsdl:message>
+  <wsdl:message name="APSvcAuthenticSoapIn">
+    <wsdl:part name="APSvcAuthenticReq" element="s0:APSvcAuthenticReq" />
+  </wsdl:message>
+  <wsdl:message name="APSvcAuthenticSoapOut">
+    <wsdl:part name="APSvcAuthenticResult" element="s0:APSvcAuthenticRsp" />
+  </wsdl:message>
+  <wsdl:message name="APSvcPerfCmdSoapIn">
+    <wsdl:part name="APSvcPerfCmdReq" element="s0:APSvcPerfCmdReq" />
+  </wsdl:message>
+  <wsdl:message name="APSvcPerfCmdSoapOut" />
+  <wsdl:message name="APSvcAlarmSoapIn">
+    <wsdl:part name="AlarmReq" element="s0:AlarmReq" />
+  </wsdl:message>
+  <wsdl:message name="APSvcAlarmSoapOut">
+    <wsdl:part name="APSvcAlarmResult" element="s0:AlarmRsp" />
+  </wsdl:message>
+  <wsdl:message name="APSvcPerfReportSoapIn">
+    <wsdl:part name="APSvcPerfReportReq" element="s0:APSvcPerfReportReq" />
+  </wsdl:message>
+  <wsdl:message name="APSvcPerfReportSoapOut" />
+  <wsdl:message name="startNotificationSoapIn">
+    <wsdl:part name="startNotificationRequest" element="s2:startNotificationRequest" />
+  </wsdl:message>
+  <wsdl:message name="startNotificationSoapOut" />
+  <wsdl:message name="stopNotificationSoapIn">
+    <wsdl:part name="stopNotificationRequest" element="s2:stopNotificationRequest" />
+  </wsdl:message>
+  <wsdl:message name="stopNotificationSoapOut" />
+  <wsdl:message name="sendSmsSoapIn">
+    <wsdl:part name="sendSmsRequest" element="s3:sendSmsRequest" />
+  </wsdl:message>
+  <wsdl:message name="sendSmsSoapOut">
+    <wsdl:part name="sendSmsResult" element="s3:sendSmsResponse" />
+  </wsdl:message>
+  <wsdl:message name="notifySmsDeliveryStatusSoapIn">
+    <wsdl:part name="notifySmsDeliveryStatusRequest" element="s3:notifySmsDeliveryStatusRequest" />
+  </wsdl:message>
+  <wsdl:message name="notifySmsDeliveryStatusSoapOut" />
+  <wsdl:message name="GetReceivedSmsSoapIn">
+    <wsdl:part name="GetReceivedSmsRequest" element="s3:GetReceivedSmsRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetReceivedSmsSoapOut">
+    <wsdl:part name="GetReceivedSmsResult" element="s3:GetReceivedSmsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSmsDeliveryStatusSoapIn">
+    <wsdl:part name="GetSmsDeliveryStatusRequest" element="s3:GetSmsDeliveryStatusRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetSmsDeliveryStatusSoapOut">
+    <wsdl:part name="GetSmsDeliveryStatusResult" element="s3:GetSmsDeliveryStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="notifySmsReceptionSoapIn">
+    <wsdl:part name="notifySmsReceptionRequest" element="s3:notifySmsReceptionRequest" />
+  </wsdl:message>
+  <wsdl:message name="notifySmsReceptionSoapOut" />
+  <wsdl:message name="sendMessageSoapIn">
+    <wsdl:part name="sendMessageRequest" element="s4:sendMessageRequest" />
+  </wsdl:message>
+  <wsdl:message name="sendMessageSoapOut">
+    <wsdl:part name="sendMessageResult" element="s4:sendMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="getMessageDeliveryStatusSoapIn">
+    <wsdl:part name="getMessageDeliveryStatusRequest" element="s4:getMessageDeliveryStatusRequest" />
+  </wsdl:message>
+  <wsdl:message name="getMessageDeliveryStatusSoapOut">
+    <wsdl:part name="getMessageDeliveryStatusResult" element="s4:getMessageDeliveryStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="getReceivedMessagesSoapIn">
+    <wsdl:part name="getReceivedMessagesRequest" element="s4:getReceivedMessagesRequest" />
+  </wsdl:message>
+  <wsdl:message name="getReceivedMessagesSoapOut">
+    <wsdl:part name="getReceivedMessagesResult" element="s4:getReceivedMessagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="getMessageSoapIn">
+    <wsdl:part name="getMessageRequest" element="s4:getMessageRequest" />
+  </wsdl:message>
+  <wsdl:message name="getMessageSoapOut">
+    <wsdl:part name="getMessageResult" element="s4:getMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="notifyMessageReceptionSoapIn">
+    <wsdl:part name="notifyMessageReceptionRequest" element="s4:notifyMessageReceptionRequest" />
+  </wsdl:message>
+  <wsdl:message name="notifyMessageReceptionSoapOut" />
+  <wsdl:message name="notifyMessageDeliveryReceiptSoapIn">
+    <wsdl:part name="notifyMessageDeliveryReceiptRequest" element="s4:notifyMessageDeliveryReceiptRequest" />
+  </wsdl:message>
+  <wsdl:message name="notifyMessageDeliveryReceiptSoapOut" />
+  <wsdl:message name="getLocationSoapIn">
+    <wsdl:part name="getLocationRequest" element="s5:getLocationRequest" />
+  </wsdl:message>
+  <wsdl:message name="getLocationSoapOut">
+    <wsdl:part name="getLocationResult" element="s5:getLocationResponse" />
+  </wsdl:message>
+  <wsdl:message name="getLocationForGroupSoapIn">
+    <wsdl:part name="getLocationForGroupRequest" element="s5:getLocationForGroupRequest" />
+  </wsdl:message>
+  <wsdl:message name="getLocationForGroupSoapOut">
+    <wsdl:part name="getLocationForGroupResult" element="s5:getLocationForGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="startPeriodicNotificationSoapIn">
+    <wsdl:part name="startPeriodicNotificationRequest" element="s5:startPeriodicNotificationRequest" />
+  </wsdl:message>
+  <wsdl:message name="startPeriodicNotificationSoapOut">
+    <wsdl:part name="startPeriodicNotificationResult" element="s5:startPeriodicNotificationResponse" />
+  </wsdl:message>
+  <wsdl:message name="EndNotificationSoapIn">
+    <wsdl:part name="EndNotificationRequest" element="s5:EndNotificationRequest" />
+  </wsdl:message>
+  <wsdl:message name="EndNotificationSoapOut" />
+  <wsdl:message name="LocationNotificationSoapIn">
+    <wsdl:part name="LocationNotificationRequest" element="s5:LocationNotificationRequest" />
+  </wsdl:message>
+  <wsdl:message name="LocationNotificationSoapOut" />
+  <wsdl:message name="LocationErrorSoapIn">
+    <wsdl:part name="LocationErrorRequest" element="s5:LocationErrorRequest" />
+  </wsdl:message>
+  <wsdl:message name="LocationErrorSoapOut" />
+  <wsdl:message name="LocationEndSoapIn">
+    <wsdl:part name="LocationEndRequest" element="s5:LocationEndRequest" />
+  </wsdl:message>
+  <wsdl:message name="LocationEndSoapOut" />
+  <wsdl:message name="sendPushSoapIn">
+    <wsdl:part name="sendPushRequest" element="s6:sendPushRequest" />
+  </wsdl:message>
+  <wsdl:message name="sendPushSoapOut">
+    <wsdl:part name="sendPushResult" element="s6:sendPushResponse" />
+  </wsdl:message>
+  <wsdl:message name="getPushDeliveryStatusSoapIn">
+    <wsdl:part name="getPushDeliveryStatusRequest" element="s6:getPushDeliveryStatusRequest" />
+  </wsdl:message>
+  <wsdl:message name="getPushDeliveryStatusSoapOut">
+    <wsdl:part name="getPushDeliveryStatusResult" element="s6:getPushDeliveryStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="notifyPushDeliveryReceiptSoapIn">
+    <wsdl:part name="notifyPushDeliveryReceiptRequest" element="s6:notifyPushDeliveryReceiptRequest" />
+  </wsdl:message>
+  <wsdl:message name="notifyPushDeliveryReceiptSoapOut" />
+  <wsdl:message name="makeUssdSoapIn">
+    <wsdl:part name="makeUssdRequest" element="s7:makeUssdRequest" />
+  </wsdl:message>
+  <wsdl:message name="makeUssdSoapOut">
+    <wsdl:part name="makeUssdResult" element="s7:makeUssdResponse" />
+  </wsdl:message>
+  <wsdl:message name="handleUssdSoapIn">
+    <wsdl:part name="handleUssdRequest" element="s7:handleUssdRequest" />
+  </wsdl:message>
+  <wsdl:message name="handleUssdSoapOut">
+    <wsdl:part name="handleUssdResult" element="s7:handleUssdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ussdContinueSoapIn">
+    <wsdl:part name="ussdContinueRequest" element="s7:ussdContinueRequest" />
+  </wsdl:message>
+  <wsdl:message name="ussdContinueSoapOut">
+    <wsdl:part name="ussdContinueResult" element="s7:ussdContinueResponse" />
+  </wsdl:message>
+  <wsdl:message name="endUssdSoapIn">
+    <wsdl:part name="endUssdRequest" element="s7:endUssdRequest" />
+  </wsdl:message>
+  <wsdl:message name="endUssdSoapOut" />
+  <wsdl:message name="notifyUssdEndSoapIn">
+    <wsdl:part name="notifyUssdEndRequest" element="s7:notifyUssdEndRequest" />
+  </wsdl:message>
+  <wsdl:message name="notifyUssdEndSoapOut" />
+  <wsdl:portType name="Cmcc_mas_wbsSoapBindingSoap">
+    <wsdl:operation name="APRegistration">
+      <wsdl:input message="tns:APRegistrationSoapIn" />
+      <wsdl:output message="tns:APRegistrationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="APStatusRep">
+      <wsdl:input message="tns:APStatusRepSoapIn" />
+      <wsdl:output message="tns:APStatusRepSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="APLogOut">
+      <wsdl:input message="tns:APLogOutSoapIn" />
+      <wsdl:output message="tns:APLogOutSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PauseAP">
+      <wsdl:input message="tns:PauseAPSoapIn" />
+      <wsdl:output message="tns:PauseAPSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RecoveryAP">
+      <wsdl:input message="tns:RecoveryAPSoapIn" />
+      <wsdl:output message="tns:RecoveryAPSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="APSvcAuthentic">
+      <wsdl:input message="tns:APSvcAuthenticSoapIn" />
+      <wsdl:output message="tns:APSvcAuthenticSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="APSvcPerfCmd">
+      <wsdl:input message="tns:APSvcPerfCmdSoapIn" />
+      <wsdl:output message="tns:APSvcPerfCmdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="APSvcAlarm">
+      <wsdl:input message="tns:APSvcAlarmSoapIn" />
+      <wsdl:output message="tns:APSvcAlarmSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="APSvcPerfReport">
+      <wsdl:input message="tns:APSvcPerfReportSoapIn" />
+      <wsdl:output message="tns:APSvcPerfReportSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="startNotification">
+      <wsdl:input message="tns:startNotificationSoapIn" />
+      <wsdl:output message="tns:startNotificationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="stopNotification">
+      <wsdl:input message="tns:stopNotificationSoapIn" />
+      <wsdl:output message="tns:stopNotificationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="sendSms">
+      <wsdl:input message="tns:sendSmsSoapIn" />
+      <wsdl:output message="tns:sendSmsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="notifySmsDeliveryStatus">
+      <wsdl:input message="tns:notifySmsDeliveryStatusSoapIn" />
+      <wsdl:output message="tns:notifySmsDeliveryStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReceivedSms">
+      <wsdl:input message="tns:GetReceivedSmsSoapIn" />
+      <wsdl:output message="tns:GetReceivedSmsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSmsDeliveryStatus">
+      <wsdl:input message="tns:GetSmsDeliveryStatusSoapIn" />
+      <wsdl:output message="tns:GetSmsDeliveryStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="notifySmsReception">
+      <wsdl:input message="tns:notifySmsReceptionSoapIn" />
+      <wsdl:output message="tns:notifySmsReceptionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="sendMessage">
+      <wsdl:input message="tns:sendMessageSoapIn" />
+      <wsdl:output message="tns:sendMessageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getMessageDeliveryStatus">
+      <wsdl:input message="tns:getMessageDeliveryStatusSoapIn" />
+      <wsdl:output message="tns:getMessageDeliveryStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getReceivedMessages">
+      <wsdl:input message="tns:getReceivedMessagesSoapIn" />
+      <wsdl:output message="tns:getReceivedMessagesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getMessage">
+      <wsdl:input message="tns:getMessageSoapIn" />
+      <wsdl:output message="tns:getMessageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="notifyMessageReception">
+      <wsdl:input message="tns:notifyMessageReceptionSoapIn" />
+      <wsdl:output message="tns:notifyMessageReceptionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="notifyMessageDeliveryReceipt">
+      <wsdl:input message="tns:notifyMessageDeliveryReceiptSoapIn" />
+      <wsdl:output message="tns:notifyMessageDeliveryReceiptSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getLocation">
+      <wsdl:input message="tns:getLocationSoapIn" />
+      <wsdl:output message="tns:getLocationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getLocationForGroup">
+      <wsdl:input message="tns:getLocationForGroupSoapIn" />
+      <wsdl:output message="tns:getLocationForGroupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="startPeriodicNotification">
+      <wsdl:input message="tns:startPeriodicNotificationSoapIn" />
+      <wsdl:output message="tns:startPeriodicNotificationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EndNotification">
+      <wsdl:input message="tns:EndNotificationSoapIn" />
+      <wsdl:output message="tns:EndNotificationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LocationNotification">
+      <wsdl:input message="tns:LocationNotificationSoapIn" />
+      <wsdl:output message="tns:LocationNotificationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LocationError">
+      <wsdl:input message="tns:LocationErrorSoapIn" />
+      <wsdl:output message="tns:LocationErrorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LocationEnd">
+      <wsdl:input message="tns:LocationEndSoapIn" />
+      <wsdl:output message="tns:LocationEndSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="sendPush">
+      <wsdl:input message="tns:sendPushSoapIn" />
+      <wsdl:output message="tns:sendPushSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getPushDeliveryStatus">
+      <wsdl:input message="tns:getPushDeliveryStatusSoapIn" />
+      <wsdl:output message="tns:getPushDeliveryStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="notifyPushDeliveryReceipt">
+      <wsdl:input message="tns:notifyPushDeliveryReceiptSoapIn" />
+      <wsdl:output message="tns:notifyPushDeliveryReceiptSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="makeUssd">
+      <wsdl:input message="tns:makeUssdSoapIn" />
+      <wsdl:output message="tns:makeUssdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="handleUssd">
+      <wsdl:input message="tns:handleUssdSoapIn" />
+      <wsdl:output message="tns:handleUssdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ussdContinue">
+      <wsdl:input message="tns:ussdContinueSoapIn" />
+      <wsdl:output message="tns:ussdContinueSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="endUssd">
+      <wsdl:input message="tns:endUssdSoapIn" />
+      <wsdl:output message="tns:endUssdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="notifyUssdEnd">
+      <wsdl:input message="tns:notifyUssdEndSoapIn" />
+      <wsdl:output message="tns:notifyUssdEndSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Cmcc_mas_wbsSoapBindingSoap" type="tns:Cmcc_mas_wbsSoapBindingSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="APRegistration">
+      <soap:operation soapAction="http://www.csapi.org/service/APRegistration" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="APStatusRep">
+      <soap:operation soapAction="http://www.csapi.org/service/APStatusRep" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="APLogOut">
+      <soap:operation soapAction="http://www.csapi.org/service/APLogOut" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PauseAP">
+      <soap:operation soapAction="http://www.csapi.org/service/PauseAP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecoveryAP">
+      <soap:operation soapAction="http://www.csapi.org/service/RecoveryAP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="APSvcAuthentic">
+      <soap:operation soapAction="http://www.csapi.org/service/APSvcAuthentic" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="APSvcPerfCmd">
+      <soap:operation soapAction="http://www.csapi.org/service/APSvcPerfCmd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="APSvcAlarm">
+      <soap:operation soapAction="http://www.csapi.org/service/APSvcAlarm" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="APSvcPerfReport">
+      <soap:operation soapAction="http://www.csapi.org/service/APSvcPerfReport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="startNotification">
+      <soap:operation soapAction="http://www.csapi.org/service/startNotification" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="stopNotification">
+      <soap:operation soapAction="http://www.csapi.org/service/stopNotification" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendSms">
+      <soap:operation soapAction="http://www.csapi.org/service/sendSms" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="notifySmsDeliveryStatus">
+      <soap:operation soapAction="http://www.csapi.org/service/notifySmsDeliveryStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReceivedSms">
+      <soap:operation soapAction="http://www.csapi.org/service/GetReceivedSms" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSmsDeliveryStatus">
+      <soap:operation soapAction="http://www.csapi.org/service/GetSmsDeliveryStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="notifySmsReception">
+      <soap:operation soapAction="http://www.csapi.org/service/notifySmsReception" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendMessage">
+      <soap:operation soapAction="http://www.csapi.org/service/sendMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMessageDeliveryStatus">
+      <soap:operation soapAction="http://www.csapi.org/service/getMessageDeliveryStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getReceivedMessages">
+      <soap:operation soapAction="http://www.csapi.org/service/getReceivedMessages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMessage">
+      <soap:operation soapAction="http://www.csapi.org/service/getMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="notifyMessageReception">
+      <soap:operation soapAction="http://www.csapi.org/service/notifyMessageReception" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="notifyMessageDeliveryReceipt">
+      <soap:operation soapAction="http://www.csapi.org/service/notifyMessageDeliveryReceipt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLocation">
+      <soap:operation soapAction="http://www.csapi.org/service/getLocation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLocationForGroup">
+      <soap:operation soapAction="http://www.csapi.org/service/getLocationForGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="startPeriodicNotification">
+      <soap:operation soapAction="http://www.csapi.org/service/startPeriodicNotification" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EndNotification">
+      <soap:operation soapAction="http://www.csapi.org/service/EndNotification" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LocationNotification">
+      <soap:operation soapAction="http://www.csapi.org/service/LocationNotification" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LocationError">
+      <soap:operation soapAction="http://www.csapi.org/service/LocationError" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LocationEnd">
+      <soap:operation soapAction="http://www.csapi.org/service/LocationEnd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendPush">
+      <soap:operation soapAction="http://www.csapi.org/service/sendPush" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPushDeliveryStatus">
+      <soap:operation soapAction="http://www.csapi.org/service/getPushDeliveryStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="notifyPushDeliveryReceipt">
+      <soap:operation soapAction="http://www.csapi.org/service/notifyPushDeliveryReceipt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="makeUssd">
+      <soap:operation soapAction="http://www.csapi.org/service/makeUssd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="handleUssd">
+      <soap:operation soapAction="http://www.csapi.org/service/handleUssd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ussdContinue">
+      <soap:operation soapAction="http://www.csapi.org/service/ussdContinue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="endUssd">
+      <soap:operation soapAction="http://www.csapi.org/service/endUssd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="notifyUssdEnd">
+      <soap:operation soapAction="http://www.csapi.org/service/notifyUssdEnd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Cmcc_mas_wbsSoapBindingSoap12" type="tns:Cmcc_mas_wbsSoapBindingSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="APRegistration">
+      <soap12:operation soapAction="http://www.csapi.org/service/APRegistration" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="APStatusRep">
+      <soap12:operation soapAction="http://www.csapi.org/service/APStatusRep" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="APLogOut">
+      <soap12:operation soapAction="http://www.csapi.org/service/APLogOut" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PauseAP">
+      <soap12:operation soapAction="http://www.csapi.org/service/PauseAP" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecoveryAP">
+      <soap12:operation soapAction="http://www.csapi.org/service/RecoveryAP" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="APSvcAuthentic">
+      <soap12:operation soapAction="http://www.csapi.org/service/APSvcAuthentic" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="APSvcPerfCmd">
+      <soap12:operation soapAction="http://www.csapi.org/service/APSvcPerfCmd" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="APSvcAlarm">
+      <soap12:operation soapAction="http://www.csapi.org/service/APSvcAlarm" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="APSvcPerfReport">
+      <soap12:operation soapAction="http://www.csapi.org/service/APSvcPerfReport" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="startNotification">
+      <soap12:operation soapAction="http://www.csapi.org/service/startNotification" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="stopNotification">
+      <soap12:operation soapAction="http://www.csapi.org/service/stopNotification" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendSms">
+      <soap12:operation soapAction="http://www.csapi.org/service/sendSms" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="notifySmsDeliveryStatus">
+      <soap12:operation soapAction="http://www.csapi.org/service/notifySmsDeliveryStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReceivedSms">
+      <soap12:operation soapAction="http://www.csapi.org/service/GetReceivedSms" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSmsDeliveryStatus">
+      <soap12:operation soapAction="http://www.csapi.org/service/GetSmsDeliveryStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="notifySmsReception">
+      <soap12:operation soapAction="http://www.csapi.org/service/notifySmsReception" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendMessage">
+      <soap12:operation soapAction="http://www.csapi.org/service/sendMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMessageDeliveryStatus">
+      <soap12:operation soapAction="http://www.csapi.org/service/getMessageDeliveryStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getReceivedMessages">
+      <soap12:operation soapAction="http://www.csapi.org/service/getReceivedMessages" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMessage">
+      <soap12:operation soapAction="http://www.csapi.org/service/getMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="notifyMessageReception">
+      <soap12:operation soapAction="http://www.csapi.org/service/notifyMessageReception" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="notifyMessageDeliveryReceipt">
+      <soap12:operation soapAction="http://www.csapi.org/service/notifyMessageDeliveryReceipt" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLocation">
+      <soap12:operation soapAction="http://www.csapi.org/service/getLocation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLocationForGroup">
+      <soap12:operation soapAction="http://www.csapi.org/service/getLocationForGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="startPeriodicNotification">
+      <soap12:operation soapAction="http://www.csapi.org/service/startPeriodicNotification" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EndNotification">
+      <soap12:operation soapAction="http://www.csapi.org/service/EndNotification" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LocationNotification">
+      <soap12:operation soapAction="http://www.csapi.org/service/LocationNotification" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LocationError">
+      <soap12:operation soapAction="http://www.csapi.org/service/LocationError" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LocationEnd">
+      <soap12:operation soapAction="http://www.csapi.org/service/LocationEnd" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendPush">
+      <soap12:operation soapAction="http://www.csapi.org/service/sendPush" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPushDeliveryStatus">
+      <soap12:operation soapAction="http://www.csapi.org/service/getPushDeliveryStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="notifyPushDeliveryReceipt">
+      <soap12:operation soapAction="http://www.csapi.org/service/notifyPushDeliveryReceipt" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="makeUssd">
+      <soap12:operation soapAction="http://www.csapi.org/service/makeUssd" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="handleUssd">
+      <soap12:operation soapAction="http://www.csapi.org/service/handleUssd" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ussdContinue">
+      <soap12:operation soapAction="http://www.csapi.org/service/ussdContinue" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="endUssd">
+      <soap12:operation soapAction="http://www.csapi.org/service/endUssd" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="notifyUssdEnd">
+      <soap12:operation soapAction="http://www.csapi.org/service/notifyUssdEnd" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Cmcc_mas_wbsSoapBinding">
+    <wsdl:port name="Cmcc_mas_wbsSoapBindingSoap" binding="tns:Cmcc_mas_wbsSoapBindingSoap">
+      <soap:address location="http://localhost:65189/Cmcc_mas_wbsSoapBinding.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Cmcc_mas_wbsSoapBindingSoap12" binding="tns:Cmcc_mas_wbsSoapBindingSoap12">
+      <soap12:address location="http://localhost:65189/Cmcc_mas_wbsSoapBinding.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
