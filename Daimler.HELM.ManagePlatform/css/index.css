@@ -1,0 +1,417 @@
+#Indexbody {
+	background: url("../images/topbg.gif") repeat-x left top rgb(255, 255, 255); margin: 0px; padding: 0px; overflow: hidden;
+}
+a:link {
+	font: 12px/normal "ËÎÌו"; color: rgb(24, 53, 209); text-decoration: none; font-size-adjust: none; font-stretch: normal;
+}
+a:visited {
+	font: 12px/normal "ËÎÌו"; color: rgb(24, 53, 209); text-decoration: none; font-size-adjust: none; font-stretch: normal;
+}
+a:active {
+	color: rgb(255, 51, 0); text-decoration: underline;
+}
+a:hover {
+	color: rgb(255, 51, 0); text-decoration: underline;
+}
+form {
+	margin: 0px; padding: 0px;
+}
+ul {
+	margin: 0px; padding: 0px;
+}
+li {
+	margin: 0px; padding: 0px;
+}
+dl {
+	margin: 0px; padding: 0px;
+}
+dt {
+	margin: 0px; padding: 0px;
+}
+dd {
+	margin: 0px; padding: 0px;
+}
+ul {
+	list-style-type: none;
+}
+#content {
+	background: url("../images/logo.gif") no-repeat left top; margin: 0px; padding: 23px 0px 0px; text-align: left;
+}
+#ChannelMenuItems {
+	height: 30px; overflow: hidden;
+}
+#ChannelMenuItems li {
+	height: 30px; overflow: hidden;
+}
+#ChannelMenuItems a {
+	height: 30px; overflow: hidden;
+}
+#ChannelMenuItems a span {
+	height: 30px; overflow: hidden;
+}
+#ChannelMenuItems {
+	margin: 0px 0px 0px 220px;
+}
+#ChannelMenuItems li {
+	margin-right: 1px; float: left;
+}
+#ChannelMenuItems a {
+	background: url("../images/none_left.gif") no-repeat left top rgb(255, 239, 189); line-height: 20px; text-decoration: none; float: left; display: block;
+}
+#ChannelMenuItems a span {
+	background: url("../images/none_side.gif") no-repeat right top; padding: 7px 13px 0px; text-align: center; float: left; display: block; cursor: pointer;
+}
+#ChannelMenuItems li a {
+	background: url("../images/digital_left.gif") no-repeat left top rgb(46, 123, 203);
+}
+#ChannelMenuItems li a span {
+	background: url("../images/digital_side.gif") no-repeat right top; font-weight: bold;
+}
+.digitaltext {
+	color: rgb(40, 103, 177);
+}
+#ChannelMenuItems li a {
+	color: rgb(40, 103, 177);
+}
+.segtext {
+	color: rgb(255, 255, 255);
+}
+#ChannelMenuItems li a span#SpanChannelMenu_MenuMyDeskTop {
+	padding: 7px 0px 0px 13px; font-weight: bold;
+}
+#ChannelMenuItems li a span#MenuMyDeskTopMore_Triangle {
+	background: url("../images/digital_side.gif") no-repeat right top; padding: 13px 13px 0px 5px; display: block;
+}
+#PE_TopQiuck {
+	margin: 0px auto; width: 170px; color: rgb(0, 101, 177);
+}
+#PE_TopQiuck dl {
+	background: url("../images/TopQuick03.gif") repeat-x left 1px; border: 1px solid rgb(141, 168, 208); height: auto !important; display: block; min-height: 250px;
+}
+#PE_TopQiuck .Border {
+	border-right-color: rgb(255, 255, 255); border-left-color: rgb(255, 255, 255); border-right-width: 1px; border-left-width: 1px; border-right-style: solid; border-left-style: solid;
+}
+#PE_TopQiuck .Title {
+	background: url("../images/TopQuick04.gif") no-repeat bottom; padding: 5px 0px 0px 12px; height: 26px; line-height: 26px; font-weight: bold;
+}
+#PE_TopQiuck .List {
+	padding: 5px 8px 10px;
+}
+#PE_TopQiuck .List li {
+	height: 22px; line-height: 22px; display: block;
+}
+#PE_TopQiuck .List a {
+	height: 22px; color: rgb(69, 121, 185); line-height: 22px; padding-left: 8px; text-decoration: none; display: block;
+}
+#PE_TopQiuck .List a:hover {
+	background: rgb(242, 248, 253); border: 1px solid rgb(230, 239, 248); height: 20px; color: rgb(204, 0, 0); line-height: 20px;
+}
+#SubMenu {
+	height: 25px; text-align: left; color: rgb(255, 255, 255); line-height: 25px; margin-left: 225px;
+}
+#SubMenu li {
+	background: url("../images/chanli.gif") no-repeat left; line-height: 25px; padding-right: 8px; padding-left: 8px; float: left;
+}
+#SubMenu li a {
+	color: rgb(255, 255, 255); line-height: 25px; display: block;
+}
+.SubMenuDiv {
+	border: 1px solid rgb(159, 189, 215); text-align: left; float: left; visibility: hidden; position: absolute; z-index: 2;
+}
+.SubMenuDiv dl {
+	margin: 0px; text-align: left;
+}
+.SubMenuDiv dd {
+	margin: 0px; text-align: left;
+}
+.SubMenuDiv dd {
+	padding: 0px 1px; width: 130px;
+}
+.SubMenuDiv dl {
+	background: url("../images/SubMenuDivbg.gif") repeat-y left top rgb(214, 231, 247); padding: 1px 0px;
+}
+#SubMenu dd a {
+	padding-left: 20px;
+}
+#SubMenu dd a:hover {
+	padding-left: 20px;
+}
+#SubMenu dd a {
+	color: rgb(68, 101, 146);
+}
+#SubMenu dd a:hover {
+	background: rgb(228, 241, 252); color: rgb(0, 54, 133); text-decoration: underline;
+}
+.clearbox2 {
+	width: 700px; height: 0px; overflow: hidden; clear: both; font-size: 0px; margin-top: -1px !important; border-top-color: transparent !important; border-top-width: 1px !important; border-top-style: solid !important; visibility: hidden;
+}
+#Announce {
+	top: 10px; right: 5px; color: rgb(43, 106, 179); position: absolute;
+}
+#Announce a {
+	font: 12px/normal "ËÎÌו"; text-decoration: none; font-size-adjust: none; font-stretch: normal;
+}
+#Announce a:link {
+	color: rgb(43, 106, 179);
+}
+#Announce a:visited {
+	color: rgb(43, 106, 179);
+}
+#Announce a:active {
+	color: rgb(204, 0, 0);
+}
+#Announce a:hover {
+	color: rgb(204, 0, 0);
+}
+.but {
+	cursor: pointer;
+}
+.popupTips {
+	background: url("../images/bg_tipsAll.gif") repeat-y left; width: 247px; right: 20px; bottom: 0px; display: none; position: absolute; z-index: 999;
+}
+.popupTips dt {
+	background: url("../images/bg_tipsTop.gif") no-repeat left top; height: 29px; color: rgb(54, 102, 170); line-height: 27px; padding-left: 18px; font-weight: bolder;
+}
+.popupTips dt a {
+	width: 20px; height: 27px; line-height: 27px; float: right; display: block; cursor: pointer;
+}
+.tips_close {
+	background: url("../images/bt_close.gif") no-repeat left 10px;
+}
+.tips_fold {
+	background: url("../images/bt_fold.gif") no-repeat left 11px;
+}
+.popupTips dd {
+	background: url("../images/bg_tipsBottom.gif") no-repeat left bottom; padding: 8px 5px 20px 25px; height: auto !important; min-height: 100px;
+}
+.popupTips dd a {
+	color: rgb(54, 102, 170); line-height: 17px;
+}
+.popupTips dd a:visited {
+	color: rgb(54, 102, 170); line-height: 17px;
+}
+.popupTips dd a:hover {
+	color: rgb(46, 130, 249);
+}
+.HelpTips {
+	top: 100px; width: 500px; right: 300px; display: none; position: absolute; z-index: 10001; background-color: rgb(225, 227, 229);
+}
+.HelpTitle {
+	width: 482px !important; height: 29px; color: rgb(54, 102, 170); line-height: 27px; padding-left: 18px; font-weight: bolder; float: left; cursor: move; background-image: url("../images/help_tips.gif"); background-repeat: repeat-x;
+}
+.HelpTitle a {
+	width: 20px; height: 27px; line-height: 27px; float: right; display: block; cursor: pointer;
+}
+.tips_close {
+	background: url("../images/bt_close.gif") no-repeat left 10px; width: 8px; height: 7px; float: right;
+}
+.HelpInfo {
+	padding: 8px 5px 20px 25px; width: 470px !important; height: 222px !important; float: left; background-color: rgb(225, 227, 229);
+}
+.HelpInfo a {
+	color: rgb(54, 102, 170); line-height: 17px;
+}
+.popupTips dd a:visited {
+	color: rgb(54, 102, 170); line-height: 17px;
+}
+.HelpInfo a:hover {
+	color: rgb(46, 130, 249);
+}
+.HelpInfo ul {
+	list-style-type: square;
+}
+.HelpTipsb {
+	width: 500px; height: 25px; float: left; background-color: rgb(225, 227, 229);
+}
+#quicknavigation {
+	left: 0px; top: 0px; position: absolute;
+}
+#ShowQuickNavigation {
+	left: 0px; top: 0px; position: absolute;
+}
+#quicknavigation {
+	background: rgb(255, 255, 255); margin: 0px auto; width: 170px; color: rgb(0, 101, 177);
+}
+#quicknavigation .Topdl {
+	margin-top: -6px;
+}
+#quicknavigation .Top {
+	background: url("../images/TopQuick02.gif") no-repeat left bottom; height: 7px; font-size: 0px;
+}
+#quicknavigation .Content {
+	background: url("../images/TopQuick03.gif") repeat-x left 1px rgb(255, 255, 255); border: 1px solid rgb(141, 168, 208);
+}
+#quicknavigation .Border {
+	border-right-color: rgb(255, 255, 255); border-left-color: rgb(255, 255, 255); border-right-width: 1px; border-left-width: 1px; border-right-style: solid; border-left-style: solid;
+}
+#quicknavigation .Title {
+	background: url("../images/TopQuick04.gif") no-repeat bottom; padding: 5px 0px 0px 12px; border: currentColor; height: 26px; line-height: 26px; font-weight: bold;
+}
+#quicknavigation .Title .UpDown {
+	padding: 0px 10px 0px 0px; width: 11px; height: 22px; float: right; display: none;
+}
+#quicknavigation .Title .UpDown li {
+	height: 11px; overflow: hidden; font-size: 0px; display: block;
+}
+#quicknavigation .Title .UpDown li a {
+	background: url("../images/TopQuick02.gif") no-repeat 0px 0px; width: 11px; height: 9px; display: block;
+}
+#quicknavigation .Title .UpDown li a.dn {
+	background-position: left -11px;
+}
+#quicknavigation .Title .UpDown li a.dn_out {
+	background-position: left -11px;
+}
+#quicknavigation .Title .UpDown li a.up_hover {
+	background-position: left -22px;
+}
+#quicknavigation .Title .UpDown li a.dn_hover {
+	background-position: left -33px;
+}
+#quicknavigation .List {
+	padding: 5px 8px 10px; border: currentColor;
+}
+#quicknavigation .List li {
+	height: 22px; line-height: 22px; display: block;
+}
+#quicknavigation .List a {
+	height: 22px; color: rgb(69, 121, 185); line-height: 22px; padding-left: 8px; text-decoration: none; display: block;
+}
+#quicknavigation .List a:hover {
+	background: rgb(242, 248, 253); border: 1px solid rgb(230, 239, 248); height: 20px; color: rgb(204, 0, 0); line-height: 20px;
+}
+#FrameTabs {
+	background: url("../images/tab-strip-bg.gif") repeat-x top rgb(212, 228, 246); padding: 2px 0px 1px; height: 25px; position: relative;
+}
+#FrameTabs ul {
+	padding: 0px 4px; height: 24px; display: block;
+}
+ul.tab-strip {
+	display: block; -ms-zoom: 1;
+}
+ul.tab-strip-top {
+	
+}
+.tab-left {
+	background: url("../images/scroll-left.gif") no-repeat -18px 0px; left: 0px; top: 0px; width: 18px; height: 23px; display: none; position: absolute; z-index: 10; cursor: pointer;
+}
+.tab-left-over {
+	
+}
+.tab-disabled {
+	background-position: -36px 0px; cursor: default;
+}
+.tab-right {
+	background: url("../images/scroll-right.gif") no-repeat 0px 0px; top: 0px; width: 18px; height: 23px; right: 0px; float: right; display: none; position: absolute; z-index: 10; cursor: pointer;
+}
+.tab-right-over {
+	background-position: -18px 0px;
+}
+.tab-strip-wrap {
+	width: 100%; overflow: hidden; position: relative; -ms-zoom: 1;
+}
+.tab-strip-margin {
+	margin-right: 18px; margin-left: 18px;
+}
+#FrameTabs li {
+	background: url("../images/tabs-sprite.gif") repeat-x left -201px; height: 21px; line-height: 21px; margin-right: 2px; float: left;
+}
+#FrameTabs li a {
+	background: url("../images/tabs-sprite.gif") no-repeat left -51px; height: 21px; color: rgb(65, 106, 163); line-height: 21px; padding-left: 8px; font-size: 12px; text-decoration: none; float: left; display: block;
+}
+#FrameTabs li a.closeTab {
+	background: url("../images/tabs-sprite.gif") no-repeat right -351px; padding: 4px 6px 6px 5px; height: 11px; cursor: pointer;
+}
+#FrameTabs li.FrameTabs_hover {
+	background-position: left -251px;
+}
+#FrameTabs li.FrameTabs_hover a {
+	background-position: left -101px;
+}
+#FrameTabs li.FrameTabs_hover a.closeTab {
+	background-position: right -401px;
+}
+#FrameTabs li.current {
+	background-position: left -151px; height: 24px; line-height: 24px;
+}
+#FrameTabs li.current a {
+	font-weight: bold;
+}
+#FrameTabs li.current a.closeTab {
+	background-position: right -301px;
+}
+#FrameTabs li#newFrameTab {
+	height: 15px; padding-top: 4px; padding-left: 2px;
+}
+#FrameTabs li#newFrameTab a {
+	background: url("../images/FrameTabs_Add.gif") no-repeat left top; width: 15px; height: 15px;
+}
+#FrameTabs li#newFrameTab a:hover {
+	background-position: 0px -15px;
+}
+.contextMenuEleOn {
+	background-color: rgb(191, 223, 255);
+}
+#MasterPagebody .operatingMenu {
+	background: url("../images/Controls.con-bg.gif") repeat-y left rgb(250, 250, 250); margin: 0px auto; padding: 2px 0px; border: 1px solid rgb(134, 134, 134); width: 150px;
+}
+#MasterPagebody .operatingMenu img {
+	border: currentColor;
+}
+#MasterPagebody .operatingMenu li {
+	margin: 0px; padding: 0px; height: 25px; line-height: 25px; overflow: hidden;
+}
+#MasterPagebody .operatingMenu li ul {
+	display: block;
+}
+#MasterPagebody .operatingMenu li ul li {
+	height: 25px; line-height: 25px;
+}
+#MasterPagebody .operatingMenu li span {
+	height: 25px; line-height: 25px; float: left; cursor: pointer;
+}
+#MasterPagebody .operatingMenu li span.Picview {
+	padding: 2px 5px 0px 3px; width: 26px; height: 22px;
+}
+#MasterPagebody .operatingMenu li span.Right-side {
+	padding: 9px 8px 9px 0px; width: 4px; height: 7px; overflow: hidden; float: right;
+}
+#MasterPagebody .operatingMenu li.menuitemhover {
+	background: url("../images/Controls.List-on.left.gif") no-repeat 0px 0px;
+}
+#MasterPagebody .operatingMenu li ul li a {
+	line-height: 25px; font-size: 12px; text-decoration: none; display: block;
+}
+#MasterPagebody .operatingMenu li.separator {
+	background: url("../images/Controls.separator.gif") no-repeat left top; height: 2px; line-height: 0; overflow: hidden; clear: both; font-size: 0px;
+}
+#prompt-note {
+	background: rgb(255, 255, 255); border: 1px solid rgb(100, 147, 200); margin-top: 10px;
+}
+#prompt-note dl {
+	padding: 1px; height: auto !important; display: block; min-height: 100px;
+}
+#prompt-note dt.prompt-note-tit {
+	background: url("../images/prompt-note-tit-bg.gif") repeat-x top; height: 26px; line-height: 26px; overflow: hidden; font-size: 12px;
+}
+#prompt-note dt.prompt-note-tit span {
+	background: url("../images/prompt-note-ico.gif") no-repeat 10px 8px; padding: 0px 80px 0px 28px; color: rgb(54, 102, 170); font-weight: bold; float: left; display: block;
+}
+#prompt-note dt.prompt-note-tit a {
+	background: url("../images/prompt-note-off.gif") no-repeat left bottom; padding: 6px 15px 0px; height: 20px; text-align: center; color: rgb(153, 153, 153); line-height: 20px; text-decoration: none; float: left; display: block; cursor: pointer;
+}
+#prompt-note dt.prompt-note-tit a.on {
+	background: url("../images/prompt-note-on.gif") no-repeat left bottom; color: rgb(0, 0, 0);
+}
+#prompt-note dt.prompt-note-tit span.right-line {
+	background: rgb(208, 208, 208); padding: 0px; width: 1px; height: 21px; margin-top: 4px; border-top-color: rgb(255, 255, 255); border-top-width: 1px; border-top-style: solid;
+}
+#prompt-note dd.prompt-note-con {
+	padding: 10px; line-height: 22px; font-size: 12px;
+}
+#prompt-note dd.prompt-note-con p {
+	line-height: 22px;
+}
+#prompt-note dd.prompt-note-con li {
+	line-height: 22px; margin-left: 25px; list-style-type: disc; list-style-position: outside;
+}

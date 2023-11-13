@@ -1,0 +1,240 @@
+a {
+	text-decoration: none;
+}
+a:link {
+	color: rgb(0, 0, 0); text-decoration: none;
+}
+a:visited {
+	color: rgb(0, 0, 0); text-decoration: none;
+}
+a:hover {
+	color: rgb(255, 102, 0); text-decoration: none;
+}
+a:active {
+	color: rgb(0, 0, 0); text-decoration: none;
+}
+a.class:link {
+	color: rgb(255, 255, 255);
+}
+a.class:visited {
+	color: rgb(255, 255, 255);
+}
+a.class:hover {
+	color: rgb(255, 255, 0);
+}
+a.class:active {
+	color: rgb(255, 255, 255);
+}
+a.title:link {
+	color: rgb(255, 255, 255);
+}
+a.title:visited {
+	color: rgb(255, 255, 255);
+}
+a.title:hover {
+	color: rgb(68, 154, 232);
+}
+a.title:active {
+	color: rgb(255, 255, 255);
+}
+a.lefts:link {
+	color: rgb(255, 255, 255);
+}
+a.lefts:visited {
+	color: rgb(255, 255, 255);
+}
+a.lefts:hover {
+	color: rgb(68, 154, 232);
+}
+a.lefts:active {
+	color: rgb(255, 255, 255);
+}
+a.date:link {
+	color: rgb(0, 0, 0);
+}
+a.date:visited {
+	color: rgb(0, 0, 0);
+}
+a.date:hover {
+	color: rgb(255, 102, 0);
+}
+a.date:active {
+	color: rgb(0, 0, 0);
+}
+td {
+	line-height: 150%; font-family: "宋体", arial, helvetica, sans-serif; font-size: 9pt;
+}
+input {
+	height: 20px; font-size: 12px;
+}
+button {
+	height: 20px; font-size: 9pt;
+}
+select {
+	height: 20px; font-size: 9pt;
+}
+.title {
+	background: rgb(68, 154, 232); color: rgb(255, 255, 255); font-weight: normal;
+}
+.border {
+	border: 1px solid rgb(68, 154, 232);
+}
+.date_border {
+	border: 1px solid currentColor;
+}
+.date_title {
+	background: rgb(68, 154, 232); color: rgb(255, 255, 255); font-weight: normal;
+}
+.date_tdbg {
+	background: rgb(68, 154, 232); color: rgb(255, 255, 255); font-weight: normal;
+}
+.style2 {
+	font-size: 10px;
+}
+.style3 {
+	font-size: 12px;
+}
+.tdtop {
+	border-right-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-left-color: rgb(0, 0, 0); border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-right-style: solid; border-bottom-style: solid; border-left-style: solid;
+}
+.tdinter {
+	text-align: center; border-right-color: rgb(192, 192, 192); border-left-color: rgb(192, 192, 192); border-right-width: 1px; border-left-width: 1px; border-right-style: solid; border-left-style: solid;
+}
+.tdbg1 {
+	background: rgb(240, 248, 240); line-height: 120%;
+}
+.title0 {
+	background: rgb(235, 234, 219); color: rgb(0, 0, 0); font-weight: normal;
+}
+.tdbg {
+	background: rgb(240, 240, 240); line-height: 120%;
+}
+.tdbgmouseover {
+	background: rgb(191, 223, 255); line-height: 120%;
+}
+.tdbgmouseout1 {
+	background: rgb(255, 255, 255); line-height: 120%;
+}
+.tdbgmouseout2 {
+	background: rgb(243, 243, 243); line-height: 120%;
+}
+.tdbg2 {
+	background: rgb(224, 238, 245); line-height: 120%;
+}
+.tdbg5 {
+	background: rgb(224, 238, 245); line-height: 120%;
+}
+.title3 {
+	background: url("images/titlebg4.gif"); width: 80px; line-height: 120%; padding-top: 2px; cursor: hand;
+}
+.title4 {
+	background: url("images/titlebg3.gif"); width: 80px; color: rgb(255, 255, 255); padding-top: 2px; font-weight: normal; cursor: hand;
+}
+.title5 {
+	background: url("images/titlebg2.gif"); width: 80px; line-height: 120%; padding-top: 2px; cursor: hand;
+}
+.title6 {
+	background: url("images/titlebg1.gif"); width: 80px; color: rgb(255, 255, 255); padding-top: 2px; font-weight: normal; cursor: hand;
+}
+.topbg {
+	background: rgb(6, 80, 210); color: rgb(255, 255, 255);
+}
+.topbg2 {
+	background: rgb(68, 154, 232);
+}
+.bgcolor {
+	background-color: rgb(225, 244, 238);
+}
+.bginput {
+	background: url("images/txtrule.jpg") repeat-x; border: 1px solid rgb(167, 166, 170); height: 20px; font-family: ms shell dlg, tahoma, sans-serif, 宋体; font-size: 12px;
+}
+.show_page {
+	text-align: center;
+}
+.romnumber {
+	text-align: right; color: highlighttext; overflow: hidden; font-size: 9pt; font-weight: bold; border-right-color: currentColor; border-right-width: 0px; border-right-style: none; cursor: default; background-color: highlight;
+}
+div#satitle2 {
+	border-right-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-left-color: rgb(0, 0, 0); border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; position: absolute; background-color: rgb(177, 193, 209);
+}
+div#satitle3 {
+	border-right-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-left-color: rgb(0, 0, 0); border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; position: absolute; background-color: rgb(177, 193, 209);
+}
+div#satitle4 {
+	border-right-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-left-color: rgb(0, 0, 0); border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; position: absolute; background-color: rgb(177, 193, 209);
+}
+div#skey {
+	border-right-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-left-color: rgb(0, 0, 0); border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; position: absolute; background-color: rgb(177, 193, 209);
+}
+div#sauthor {
+	border-right-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-left-color: rgb(0, 0, 0); border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; position: absolute; background-color: rgb(177, 193, 209);
+}
+div#scopyfrom {
+	border-right-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-left-color: rgb(0, 0, 0); border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; position: absolute; background-color: rgb(177, 193, 209);
+}
+.tableborder {
+	border: 1px solid rgb(101, 149, 214); background-color: rgb(255, 255, 255);
+}
+td.forumrow {
+	background-color: rgb(213, 233, 255);
+}
+td.leftrow {
+	text-align: left; background-color: rgb(213, 233, 255);
+}
+td.centerrow {
+	text-align: center; background-color: rgb(213, 233, 255);
+}
+td.forumrowhighlight {
+	background-color: rgb(230, 239, 248);
+}
+input {
+	border-width: 1px; font-family: "宋体", arial, helvetica, sans-serif; font-size: 12px;
+}
+textarea {
+	border-width: 1px; font-family: "宋体", arial, helvetica, sans-serif; font-size: 12px;
+}
+button {
+	border-width: 1px; font-family: "宋体", arial, helvetica, sans-serif; font-size: 12px;
+}
+select {
+	border-width: 1px; font-family: "宋体", arial, helvetica, sans-serif; font-size: 12px;
+}
+th {
+	color: black; font-size: 12px; font-weight: bold; background-image: url("../images/admin_bg.gif"); background-color: rgb(68, 85, 170);
+}
+.SortFolderOpen {
+	left: 16px; height: 16px; padding-left: 16px; cursor: hand; background-image: url("Sort_Folder_Close.gif"); background-repeat: no-repeat;
+}
+.SortFolderClose {
+	left: 16px; height: 16px; padding-left: 16px; cursor: hand; background-image: url("Sort_Folder_Open.gif"); background-repeat: no-repeat;
+}
+.SortEndFolderOpen {
+	left: 16px; height: 16px; padding-left: 16px; cursor: hand; background-image: url("SortEnd_Folder_Close.gif"); background-repeat: no-repeat;
+}
+.SortEndFolderClose {
+	left: 16px; height: 16px; padding-left: 16px; cursor: hand; background-image: url("SortEnd_Folder_Open.gif"); background-repeat: no-repeat;
+}
+.SortListline {
+	padding-left: 16px; background-image: url("Sort_Listline.gif"); background-repeat: repeat-y;
+}
+.SortEndListline {
+	padding-left: 16px;
+}
+.SortFile {
+	height: 16px; padding-left: 16px; cursor: hand; background-image: url("Sort_File.gif"); background-repeat: no-repeat;
+}
+.SortFileEnd {
+	height: 16px; padding-left: 16px; cursor: hand; background-image: url("Sort_File_End.gif"); background-repeat: no-repeat;
+}
+body {
+	margin: 0px; padding: 0px; line-height: 150%; font-family: "宋体", arial, helvetica, sans-serif; font-size: 9pt; text-decoration: none; -ms-scrollbar-face-color: rgb(43, 115, 241); -ms-scrollbar-3dlight-color: rgb(68, 154, 232); -ms-scrollbar-shadow-color: rgb(68, 154, 232); -ms-scrollbar-highlight-color: rgb(6, 80, 210); -ms-scrollbar-darkshadow-color: rgb(6, 80, 210); -ms-scrollbar-arrow-color: rgb(2, 51, 138); -ms-scrollbar-track-color: rgb(6, 80, 210); background-color: rgb(212, 228, 246);
+}
+.glow {
+	width: 100%; color: rgb(255, 255, 255); line-height: 20px;
+}
+.txt_main {
+	font-size: 9pt; -ms-scrollbar-face-color: rgb(246, 246, 246); -ms-scrollbar-3dlight-color: rgb(204, 204, 204); -ms-scrollbar-shadow-color: rgb(204, 204, 204); -ms-scrollbar-highlight-color: rgb(255, 255, 255); -ms-scrollbar-darkshadow-color: rgb(255, 255, 255); -ms-scrollbar-arrow-color: rgb(51, 0, 0); -ms-scrollbar-track-color: rgb(246, 246, 246);
+}
+div#satitle {
+	border-right-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-left-color: rgb(0, 0, 0); border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; position: absolute; background-color: rgb(177, 193, 209);
+}

@@ -1,0 +1,135 @@
+#Guidebody {
+	background: rgb(169, 201, 238); margin: 0px; padding: 5px 0px 0px;
+}
+#Guide_back {
+	margin: 0px; padding: 0px; list-style-type: none;
+}
+#Guide_back ul {
+	margin: 0px; padding: 0px; list-style-type: none;
+}
+#Guide_back li {
+	margin: 0px; padding: 0px; list-style-type: none;
+}
+#Guide_back {
+	background: url("../images/Guide_main.gif") repeat-y left rgb(169, 201, 238);
+}
+#Guide_top {
+	background: url("../images/Guide_top.gif") no-repeat left top rgb(169, 201, 238); height: 57px;
+}
+#Guide_toptext {
+	margin: 0px 0px 0px 60px; color: rgb(40, 86, 155); padding-top: 25px; font-family: "宋体"; font-size: 12px; font-weight: bold;
+}
+#Guide_main {
+	margin: 0px; padding: 0px;
+}
+#Guide_box {
+	margin: 0px 0px 0px 10px; padding: 0px;
+}
+.guideexpand {
+	height: 25px; text-align: left; color: rgb(8, 55, 124); line-height: 25px; padding-left: 30px; font-family: "宋体"; font-size: 12px; font-weight: bold; cursor: pointer;
+}
+.guidecollapse {
+	height: 25px; text-align: left; color: rgb(8, 55, 124); line-height: 25px; padding-left: 30px; font-family: "宋体"; font-size: 12px; font-weight: bold; cursor: pointer;
+}
+.guideexpand {
+	background: url("../images/guide_expand.gif") no-repeat left;
+}
+.guidecollapse {
+	background: url("../images/guide_collapse.gif") no-repeat left;
+}
+.guide {
+	margin-right: 15px; background-color: rgb(255, 255, 255);
+}
+.guidesearch {
+	margin-right: 15px; background-color: rgb(255, 255, 255);
+}
+.guide ul {
+	margin: 0px; padding: 0px; list-style-type: none; background-color: rgb(255, 255, 255);
+}
+.guide li {
+	margin: 0px; padding: 0px; list-style-type: none; background-color: rgb(255, 255, 255);
+}
+.guidesearch {
+	text-align: center; line-height: 25px; margin-top: 2px;
+}
+.guide li {
+	line-height: 140%; background-color: rgb(255, 255, 255);
+}
+* html .guide li {
+	height: 20px;
+}
+.guide a {
+	padding: 3px 0px 3px 8px; text-align: left; text-decoration: none; display: block;
+}
+.guide a:link {
+	border: 1px solid rgb(255, 255, 255); color: rgb(69, 121, 185);
+}
+.guide a:visited {
+	border: 1px solid rgb(255, 255, 255); color: rgb(69, 121, 185);
+}
+.guide a:hover {
+	border: 1px solid rgb(230, 239, 248); color: rgb(204, 0, 0); text-decoration: none; background-color: rgb(242, 248, 253);
+}
+#Guide_bottom {
+	background: url("../images/Guide_bottom.gif") no-repeat left top rgb(173, 203, 239); height: 13px;
+}
+.refresh {
+	background: url("../images/refresh.gif") no-repeat center; left: 160px; top: 29px; width: 15px; height: 15px; position: absolute; cursor: pointer;
+}
+.quickLink li {
+	float: left; white-space: nowrap;
+}
+.floatingDialog {
+	border: 1px solid rgb(0, 0, 0); left: 200px; top: 100px; position: absolute; z-index: 50; background-color: rgb(240, 245, 255);
+}
+.floatingDialog_handle {
+	background: url("../images/title.gif") repeat-x left top rgb(176, 208, 243); padding: 2px; text-align: center; color: rgb(54, 102, 170); line-height: 120%; font-weight: bold; vertical-align: middle; cursor: move;
+}
+.floatingDialog_content {
+	background: rgb(212, 228, 246); padding: 5px;
+}
+.floatingDialogClose {
+	color: rgb(255, 255, 255); text-decoration: none; float: right;
+}
+.floatingDialogFontSkin {
+	color: red; cursor: pointer;
+}
+#AdminTabs {
+	height: 24px; clear: both;
+}
+#AdminTabs {
+	margin: 0px; padding: 0px;
+}
+#AdminTabs ul {
+	margin: 0px; padding: 0px;
+}
+#AdminTabs li {
+	margin: 0px; padding: 0px;
+}
+#AdminTabs li {
+	font-weight: bold; margin-right: 2px; cursor: pointer;
+}
+#AdminTabs li {
+	float: left;
+}
+#AdminTabs a {
+	float: left;
+}
+#AdminTabs a {
+	background: url("../images/tableft.gif") no-repeat left top; font: 12px/24px Arial, "宋体", Helvetica, sans-serif; margin: 0px; text-align: center; padding-left: 3px; text-decoration: none; display: block; min-width: 70px; font-size-adjust: none; font-stretch: normal;
+}
+#AdminTabs a span {
+	background: url("../images/tabright.gif") no-repeat right top; padding: 0px 8px 0px 5px; color: rgb(0, 0, 0); float: none; display: block;
+}
+#AdminTabs a:hover {
+	background-position: 0% -24px;
+}
+#AdminTabs #current a {
+	background-position: 0% -24px;
+}
+#AdminTabs a:hover span {
+	background-position: 100% -24px; color: rgb(255, 255, 255);
+}
+#AdminTabs #current a span {
+	background-position: 100% -24px; color: rgb(255, 255, 255);
+}
