@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B709D7F6-49EC-4A06-ACB2-84843B0E43A4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Daimler.HELM.Control</RootNamespace>
+    <AssemblyName>Daimler.HELM.Control</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="LocalCall.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceFactory.cs" />
+    <Compile Include="WebSerivce.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Daimler.HELM.AppService.Contract\Daimler.HELM.HubService.Contract.csproj">
+      <Project>{9338a7c9-13aa-4d5c-a34d-93a8312c745c}</Project>
+      <Name>Daimler.HELM.HubService.Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Daimler.HELM.AppService.Logic\Daimler.HELM.HubService.Logic.csproj">
+      <Project>{649df2f7-eefa-4a6f-9435-08fffb2f6630}</Project>
+      <Name>Daimler.HELM.HubService.Logic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Daimler.HELM.AppServiceProxy\Daimler.HELM.HubServiceProxy.csproj">
+      <Project>{181221ec-a267-4eb5-9d76-aac06cbad3b1}</Project>
+      <Name>Daimler.HELM.HubServiceProxy</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Daimler.HELM.BizObjects\Daimler.HELM.BizObjects.csproj">
+      <Project>{325c1225-94d0-4c92-9e72-3dd2cde41df2}</Project>
+      <Name>Daimler.HELM.BizObjects</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Daimler.HELM.Log\Daimler.HELM.Log.csproj">
+      <Project>{b42c1211-a1b0-43ee-bdb7-ef07613fe831}</Project>
+      <Name>Daimler.HELM.Log</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
