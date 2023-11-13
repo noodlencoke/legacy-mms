@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://www.csapi.org/schema/ap" elementFormDefault="qualified" targetNamespace="http://www.csapi.org/schema/ap" id="schema1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://www.csapi.org/schema/common/v2_0" />
+  <xs:element name="APRegistrationReq">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="Apid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="APPid" type="xs:int" />
+        <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="HostIP" nillable="true" type="xs:string" />
+        <xs:element xmlns:q1="http://www.csapi.org/schema/common/v2_0" minOccurs="0" maxOccurs="unbounded" form="unqualified" name="MessageNotification" nillable="true" type="q1:MessageNotificationType" />
+        <xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="APWSURI" type="xs:anyURI" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="APRegistrationRsp">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="RegResult" nillable="true" type="tns:APRegResult" />
+        <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="NextInterval" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:simpleType name="APRegResult">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="success" />
+      <xs:enumeration value="illegalAP" />
+      <xs:enumeration value="CMAbilityNotSup" />
+      <xs:enumeration value="repeatedReg" />
+      <xs:enumeration value="svcAddrMismatch" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="APStatusRepReq">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="APid" type="xs:string" />
+        <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="APStatus" type="tns:APStatusType" />
+        <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="APPid" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:simpleType name="APStatusType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Normal" />
+      <xs:enumeration value="OutofActiveTime" />
+      <xs:enumeration value="NeedRegistration" />
+      <xs:enumeration value="OutofService" />
+      <xs:enumeration value="Paused" />
+      <xs:enumeration value="Closed" />
+      <xs:enumeration value="WaitingforConfirm" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="APStatusRepRsp">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="NextCommand" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="NextInterval" type="xs:int" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" form="unqualified" name="ApSvcAuthType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" form="unqualified" name="ApSvcPerfCmdType" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="APLogOutReq">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="APid" type="xs:string" />
+        <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="APPid" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="APLogOutRsp">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="LogoutResult" nillable="true" type="tns:APLogoutResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:simpleType name="APLogoutResult">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="success" />
+      <xs:enumeration value="fail" />
+      <xs:enumeration value="illegalAPid" />
+      <xs:enumeration value="repeatedLogout" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="PauseAPReq">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="APid" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PauseAPRsp">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="ACK" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RecoveryAPReq">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="APid" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RecoveryAPRsp">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="ACK" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="APSvcAuthenticReq">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="APid" type="xs:string" />
+        <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="ApSvcAuthType" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="APSvcAuthenticRsp">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="APid" type="xs:string" />
+        <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="ApSvcAuthResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="APSvcPerfCmdReq">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="APid" type="xs:string" />
+        <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="ApSvcPerfCmdType" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AlarmReq">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="alarmId" type="xs:string" />
+        <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="orgseverity" type="xs:int" />
+        <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="orgtype" type="xs:int" />
+        <xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="probablecause" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="eventTime" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="ackTime" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="clearTime" type="xs:string" />
+        <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="activestatus" type="xs:int" />
+        <xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="alarmtitle" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="alarmText" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AlarmRsp">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="recode" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="reMsg" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="APSvcPerfReportReq">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="APid" type="xs:string" />
+        <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="ApSvcPerfData" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

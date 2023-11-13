@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://www.csapi.org/schema/ussd" elementFormDefault="qualified" targetNamespace="http://www.csapi.org/schema/ussd" id="schema8" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="makeUssdRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="ApplicationID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="destinationAddress" type="xs:anyURI" />
+        <xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="ussdMessage" type="tns:UssdArray" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="UssdArray">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="ussdMessage" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="ussdReturnRequest" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="makeUssdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="ussdIdentifier" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="handleUssdRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="ussdIdentifier" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="senderAddress" type="xs:anyURI" />
+        <xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="ussdMessage" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="handleUssdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="result" type="tns:UssdArray" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ussdContinueRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="ussdIdentifier" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="ussdMessage" type="tns:UssdArray" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ussdContinueResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="returnMessage" type="tns:UssdArray" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="endUssdRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="ApplicationID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="UssdMessage" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="UssdIdentifier" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="notifyUssdEndRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="ussdIdentifier" type="xs:string" />
+        <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="endReason" type="tns:EndReason" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:simpleType name="EndReason">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="UserEnd" />
+      <xs:enumeration value="Busy" />
+      <xs:enumeration value="UserAbsent" />
+      <xs:enumeration value="IllegalEquipment" />
+      <xs:enumeration value="SystemError" />
+      <xs:enumeration value="TimeOut" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

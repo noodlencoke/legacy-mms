@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://www.csapi.org/schema/location" elementFormDefault="qualified" targetNamespace="http://www.csapi.org/schema/location" id="schema6" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://www.csapi.org/schema/common/v2_0" />
+  <xs:element name="getLocationRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="Requester" nillable="true" type="xs:anyURI" />
+        <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="Address" nillable="true" type="xs:anyURI" />
+        <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="RequestedAccuracy" type="xs:int" />
+        <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="AcceptableAccuracy" type="xs:int" />
+        <xs:element xmlns:q1="http://www.csapi.org/schema/common/v2_0" minOccurs="1" maxOccurs="1" form="unqualified" name="MaximumAge" nillable="true" type="q1:TimeMetric" />
+        <xs:element xmlns:q2="http://www.csapi.org/schema/common/v2_0" minOccurs="1" maxOccurs="1" form="unqualified" name="ResponseTime" nillable="true" type="q2:TimeMetric" />
+        <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="Tolerance" nillable="true" type="tns:DelayTolerance" />
+        <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="ApplicationId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="serviceType" type="tns:ServiceType" />
+        <xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="crs" type="tns:CoordinateReferenceSystem" />
+        <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="locType" type="tns:LocType" />
+        <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="prio" type="tns:Priority" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:simpleType name="DelayTolerance">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NoDelay" />
+      <xs:enumeration value="LowDelay" />
+      <xs:enumeration value="DelayTolerant" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ServiceType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="STANDARD" />
+      <xs:enumeration value="EMERGENCY" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="CoordinateReferenceSystem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="code" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="codeSpace" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="edition" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="LocType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="CURRENT" />
+      <xs:enumeration value="LAST" />
+      <xs:enumeration value="CURRENT_OR_LAST" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Priority">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NORMAL" />
+      <xs:enumeration value="HIGH" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="getLocationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="Result" nillable="true" type="tns:LocationInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="LocationInfo">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="Latitude" type="xs:float" />
+      <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="Longitude" type="xs:float" />
+      <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="Altitude" type="xs:float" />
+      <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="Accuracy" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="Timestamp" nillable="true" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="getLocationForGroupRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="Requester" nillable="true" type="xs:anyURI" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" form="unqualified" name="Addresses" nillable="true" type="xs:anyURI" />
+        <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="RequestedAccuracy" type="xs:int" />
+        <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="AcceptableAccuracy" type="xs:int" />
+        <xs:element xmlns:q3="http://www.csapi.org/schema/common/v2_0" minOccurs="1" maxOccurs="1" form="unqualified" name="MaximumAge" nillable="true" type="q3:TimeMetric" />
+        <xs:element xmlns:q4="http://www.csapi.org/schema/common/v2_0" minOccurs="1" maxOccurs="1" form="unqualified" name="ResponseTime" nillable="true" type="q4:TimeMetric" />
+        <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="Tolerance" nillable="true" type="tns:DelayTolerance" />
+        <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="ApplicationId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="serviceType" type="tns:ServiceType" />
+        <xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="crs" type="tns:CoordinateReferenceSystem" />
+        <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="locType" type="tns:LocType" />
+        <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="prio" type="tns:Priority" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getLocationForGroupResponse" type="tns:ArrayOfLocationData" />
+  <xs:complexType name="ArrayOfLocationData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" form="unqualified" name="item" type="tns:LocationData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="LocationData">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="Address" nillable="true" type="xs:anyURI" />
+      <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="ReportStatus" nillable="true" type="tns:RetrievalStatus" />
+      <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="CurrentLocation" nillable="true" type="tns:LocationInfo" />
+      <xs:element xmlns:q5="http://www.csapi.org/schema/common/v2_0" minOccurs="1" maxOccurs="1" form="unqualified" name="ErrorInformation" nillable="true" type="q5:ServiceError" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="RetrievalStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Retrieved" />
+      <xs:enumeration value="NotRetrieved" />
+      <xs:enumeration value="Error" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="startPeriodicNotificationRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="Requester" nillable="true" type="xs:anyURI" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" form="unqualified" name="Addresses" nillable="true" type="xs:anyURI" />
+        <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="RequestedAccuracy" type="xs:int" />
+        <xs:element xmlns:q6="http://www.csapi.org/schema/common/v2_0" minOccurs="1" maxOccurs="1" form="unqualified" name="Frequency" nillable="true" type="q6:TimeMetric" />
+        <xs:element xmlns:q7="http://www.csapi.org/schema/common/v2_0" minOccurs="1" maxOccurs="1" form="unqualified" name="Duration" nillable="true" type="q7:TimeMetric" />
+        <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="ApplicationId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="serviceType" type="tns:ServiceType" />
+        <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="Crs" nillable="true" type="tns:CoordinateReferenceSystem" />
+        <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="locType" type="tns:LocType" />
+        <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="prio" type="tns:Priority" />
+        <xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="eventNotification" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="startPeriodicNotificationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="correlator" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EndNotificationRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="ApplicationId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="correlator" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LocationNotificationRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="correlator" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" form="unqualified" name="data" type="tns:LocationData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LocationErrorRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="correlator" type="xs:string" />
+        <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="Address" nillable="true" type="xs:anyURI" />
+        <xs:element xmlns:q8="http://www.csapi.org/schema/common/v2_0" minOccurs="1" maxOccurs="1" form="unqualified" name="Reason" nillable="true" type="q8:ServiceError" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LocationEndRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="correlator" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

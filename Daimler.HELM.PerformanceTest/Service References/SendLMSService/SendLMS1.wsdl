@@ -1,0 +1,1029 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.csapi.org/service" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://www.csapi.org/service" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema targetNamespace="http://www.csapi.org/service">
+      <s:import schemaLocation="http://localhost:65189/SendLMS.asmx?schema=schema1" namespace="http://www.csapi.org/schema/ap" />
+      <s:import schemaLocation="http://localhost:65189/SendLMS.asmx?schema=schema2" namespace="http://www.csapi.org/schema/common/v2_0" />
+      <s:import schemaLocation="http://localhost:65189/SendLMS.asmx?schema=schema3" namespace="http://www.csapi.org/schema/notification" />
+      <s:import schemaLocation="http://localhost:65189/SendLMS.asmx?schema=schema4" namespace="http://www.csapi.org/schema/sms" />
+      <s:import schemaLocation="http://localhost:65189/SendLMS.asmx?schema=schema5" namespace="http://www.csapi.org/schema/mms" />
+      <s:import schemaLocation="http://localhost:65189/SendLMS.asmx?schema=schema6" namespace="http://www.csapi.org/schema/location" />
+      <s:import schemaLocation="http://localhost:65189/SendLMS.asmx?schema=schema7" namespace="http://www.csapi.org/schema/wap" />
+      <s:import schemaLocation="http://localhost:65189/SendLMS.asmx?schema=schema8" namespace="http://www.csapi.org/schema/ussd" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="APRegistrationSoapIn">
+    <wsdl:part xmlns:q1="http://www.csapi.org/schema/ap" name="APRegistrationReq" element="q1:APRegistrationReq" />
+  </wsdl:message>
+  <wsdl:message name="APRegistrationSoapOut">
+    <wsdl:part xmlns:q2="http://www.csapi.org/schema/ap" name="APRegistrationResult" element="q2:APRegistrationRsp" />
+  </wsdl:message>
+  <wsdl:message name="APStatusRepSoapIn">
+    <wsdl:part xmlns:q3="http://www.csapi.org/schema/ap" name="APStatusRepReq" element="q3:APStatusRepReq" />
+  </wsdl:message>
+  <wsdl:message name="APStatusRepSoapOut">
+    <wsdl:part xmlns:q4="http://www.csapi.org/schema/ap" name="APStatusRepResult" element="q4:APStatusRepRsp" />
+  </wsdl:message>
+  <wsdl:message name="APLogOutSoapIn">
+    <wsdl:part xmlns:q5="http://www.csapi.org/schema/ap" name="APLogOutReq" element="q5:APLogOutReq" />
+  </wsdl:message>
+  <wsdl:message name="APLogOutSoapOut">
+    <wsdl:part xmlns:q6="http://www.csapi.org/schema/ap" name="APLogOutResult" element="q6:APLogOutRsp" />
+  </wsdl:message>
+  <wsdl:message name="PauseAPSoapIn">
+    <wsdl:part xmlns:q7="http://www.csapi.org/schema/ap" name="PauseAPReq" element="q7:PauseAPReq" />
+  </wsdl:message>
+  <wsdl:message name="PauseAPSoapOut">
+    <wsdl:part xmlns:q8="http://www.csapi.org/schema/ap" name="PauseAPResult" element="q8:PauseAPRsp" />
+  </wsdl:message>
+  <wsdl:message name="RecoveryAPSoapIn">
+    <wsdl:part xmlns:q9="http://www.csapi.org/schema/ap" name="RecoveryAPReq" element="q9:RecoveryAPReq" />
+  </wsdl:message>
+  <wsdl:message name="RecoveryAPSoapOut">
+    <wsdl:part xmlns:q10="http://www.csapi.org/schema/ap" name="RecoveryAPResult" element="q10:RecoveryAPRsp" />
+  </wsdl:message>
+  <wsdl:message name="APSvcAuthenticSoapIn">
+    <wsdl:part xmlns:q11="http://www.csapi.org/schema/ap" name="APSvcAuthenticReq" element="q11:APSvcAuthenticReq" />
+  </wsdl:message>
+  <wsdl:message name="APSvcAuthenticSoapOut">
+    <wsdl:part xmlns:q12="http://www.csapi.org/schema/ap" name="APSvcAuthenticResult" element="q12:APSvcAuthenticRsp" />
+  </wsdl:message>
+  <wsdl:message name="APSvcPerfCmdSoapIn">
+    <wsdl:part xmlns:q13="http://www.csapi.org/schema/ap" name="APSvcPerfCmdReq" element="q13:APSvcPerfCmdReq" />
+  </wsdl:message>
+  <wsdl:message name="APSvcPerfCmdSoapOut" />
+  <wsdl:message name="APSvcAlarmSoapIn">
+    <wsdl:part xmlns:q14="http://www.csapi.org/schema/ap" name="AlarmReq" element="q14:AlarmReq" />
+  </wsdl:message>
+  <wsdl:message name="APSvcAlarmSoapOut">
+    <wsdl:part xmlns:q15="http://www.csapi.org/schema/ap" name="APSvcAlarmResult" element="q15:AlarmRsp" />
+  </wsdl:message>
+  <wsdl:message name="APSvcPerfReportSoapIn">
+    <wsdl:part xmlns:q16="http://www.csapi.org/schema/ap" name="APSvcPerfReportReq" element="q16:APSvcPerfReportReq" />
+  </wsdl:message>
+  <wsdl:message name="APSvcPerfReportSoapOut" />
+  <wsdl:message name="startNotificationSoapIn">
+    <wsdl:part xmlns:q17="http://www.csapi.org/schema/notification" name="startNotificationRequest" element="q17:startNotificationRequest" />
+  </wsdl:message>
+  <wsdl:message name="startNotificationSoapOut" />
+  <wsdl:message name="stopNotificationSoapIn">
+    <wsdl:part xmlns:q18="http://www.csapi.org/schema/notification" name="stopNotificationRequest" element="q18:stopNotificationRequest" />
+  </wsdl:message>
+  <wsdl:message name="stopNotificationSoapOut" />
+  <wsdl:message name="sendSmsSoapIn">
+    <wsdl:part xmlns:q19="http://www.csapi.org/schema/sms" name="sendSmsRequest" element="q19:sendSmsRequest" />
+  </wsdl:message>
+  <wsdl:message name="sendSmsSoapOut">
+    <wsdl:part xmlns:q20="http://www.csapi.org/schema/sms" name="sendSmsResult" element="q20:sendSmsResponse" />
+  </wsdl:message>
+  <wsdl:message name="notifySmsDeliveryStatusSoapIn">
+    <wsdl:part xmlns:q21="http://www.csapi.org/schema/sms" name="notifySmsDeliveryStatusRequest" element="q21:notifySmsDeliveryStatusRequest" />
+  </wsdl:message>
+  <wsdl:message name="notifySmsDeliveryStatusSoapOut" />
+  <wsdl:message name="GetReceivedSmsSoapIn">
+    <wsdl:part xmlns:q22="http://www.csapi.org/schema/sms" name="GetReceivedSmsRequest" element="q22:GetReceivedSmsRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetReceivedSmsSoapOut">
+    <wsdl:part xmlns:q23="http://www.csapi.org/schema/sms" name="GetReceivedSmsResult" element="q23:GetReceivedSmsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSmsDeliveryStatusSoapIn">
+    <wsdl:part xmlns:q24="http://www.csapi.org/schema/sms" name="GetSmsDeliveryStatusRequest" element="q24:GetSmsDeliveryStatusRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetSmsDeliveryStatusSoapOut">
+    <wsdl:part xmlns:q25="http://www.csapi.org/schema/sms" name="GetSmsDeliveryStatusResult" element="q25:GetSmsDeliveryStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="notifySmsReceptionSoapIn">
+    <wsdl:part xmlns:q26="http://www.csapi.org/schema/sms" name="notifySmsReceptionRequest" element="q26:notifySmsReceptionRequest" />
+  </wsdl:message>
+  <wsdl:message name="notifySmsReceptionSoapOut" />
+  <wsdl:message name="sendMessageSoapIn">
+    <wsdl:part xmlns:q27="http://www.csapi.org/schema/mms" name="sendMessageRequest" element="q27:sendMessageRequest" />
+  </wsdl:message>
+  <wsdl:message name="sendMessageSoapOut">
+    <wsdl:part xmlns:q28="http://www.csapi.org/schema/mms" name="sendMessageResult" element="q28:sendMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="getMessageDeliveryStatusSoapIn">
+    <wsdl:part xmlns:q29="http://www.csapi.org/schema/mms" name="getMessageDeliveryStatusRequest" element="q29:getMessageDeliveryStatusRequest" />
+  </wsdl:message>
+  <wsdl:message name="getMessageDeliveryStatusSoapOut">
+    <wsdl:part xmlns:q30="http://www.csapi.org/schema/mms" name="getMessageDeliveryStatusResult" element="q30:getMessageDeliveryStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="getReceivedMessagesSoapIn">
+    <wsdl:part xmlns:q31="http://www.csapi.org/schema/mms" name="getReceivedMessagesRequest" element="q31:getReceivedMessagesRequest" />
+  </wsdl:message>
+  <wsdl:message name="getReceivedMessagesSoapOut">
+    <wsdl:part xmlns:q32="http://www.csapi.org/schema/mms" name="getReceivedMessagesResult" element="q32:getReceivedMessagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="getMessageSoapIn">
+    <wsdl:part xmlns:q33="http://www.csapi.org/schema/mms" name="getMessageRequest" element="q33:getMessageRequest" />
+  </wsdl:message>
+  <wsdl:message name="getMessageSoapOut">
+    <wsdl:part xmlns:q34="http://www.csapi.org/schema/mms" name="getMessageResult" element="q34:getMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="notifyMessageReceptionSoapIn">
+    <wsdl:part xmlns:q35="http://www.csapi.org/schema/mms" name="notifyMessageReceptionRequest" element="q35:notifyMessageReceptionRequest" />
+  </wsdl:message>
+  <wsdl:message name="notifyMessageReceptionSoapOut" />
+  <wsdl:message name="notifyMessageDeliveryReceiptSoapIn">
+    <wsdl:part xmlns:q36="http://www.csapi.org/schema/mms" name="notifyMessageDeliveryReceiptRequest" element="q36:notifyMessageDeliveryReceiptRequest" />
+  </wsdl:message>
+  <wsdl:message name="notifyMessageDeliveryReceiptSoapOut" />
+  <wsdl:message name="getLocationSoapIn">
+    <wsdl:part xmlns:q37="http://www.csapi.org/schema/location" name="getLocationRequest" element="q37:getLocationRequest" />
+  </wsdl:message>
+  <wsdl:message name="getLocationSoapOut">
+    <wsdl:part xmlns:q38="http://www.csapi.org/schema/location" name="getLocationResult" element="q38:getLocationResponse" />
+  </wsdl:message>
+  <wsdl:message name="getLocationForGroupSoapIn">
+    <wsdl:part xmlns:q39="http://www.csapi.org/schema/location" name="getLocationForGroupRequest" element="q39:getLocationForGroupRequest" />
+  </wsdl:message>
+  <wsdl:message name="getLocationForGroupSoapOut">
+    <wsdl:part xmlns:q40="http://www.csapi.org/schema/location" name="getLocationForGroupResult" element="q40:getLocationForGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="startPeriodicNotificationSoapIn">
+    <wsdl:part xmlns:q41="http://www.csapi.org/schema/location" name="startPeriodicNotificationRequest" element="q41:startPeriodicNotificationRequest" />
+  </wsdl:message>
+  <wsdl:message name="startPeriodicNotificationSoapOut">
+    <wsdl:part xmlns:q42="http://www.csapi.org/schema/location" name="startPeriodicNotificationResult" element="q42:startPeriodicNotificationResponse" />
+  </wsdl:message>
+  <wsdl:message name="EndNotificationSoapIn">
+    <wsdl:part xmlns:q43="http://www.csapi.org/schema/location" name="EndNotificationRequest" element="q43:EndNotificationRequest" />
+  </wsdl:message>
+  <wsdl:message name="EndNotificationSoapOut" />
+  <wsdl:message name="LocationNotificationSoapIn">
+    <wsdl:part xmlns:q44="http://www.csapi.org/schema/location" name="LocationNotificationRequest" element="q44:LocationNotificationRequest" />
+  </wsdl:message>
+  <wsdl:message name="LocationNotificationSoapOut" />
+  <wsdl:message name="LocationErrorSoapIn">
+    <wsdl:part xmlns:q45="http://www.csapi.org/schema/location" name="LocationErrorRequest" element="q45:LocationErrorRequest" />
+  </wsdl:message>
+  <wsdl:message name="LocationErrorSoapOut" />
+  <wsdl:message name="LocationEndSoapIn">
+    <wsdl:part xmlns:q46="http://www.csapi.org/schema/location" name="LocationEndRequest" element="q46:LocationEndRequest" />
+  </wsdl:message>
+  <wsdl:message name="LocationEndSoapOut" />
+  <wsdl:message name="sendPushSoapIn">
+    <wsdl:part xmlns:q47="http://www.csapi.org/schema/wap" name="sendPushRequest" element="q47:sendPushRequest" />
+  </wsdl:message>
+  <wsdl:message name="sendPushSoapOut">
+    <wsdl:part xmlns:q48="http://www.csapi.org/schema/wap" name="sendPushResult" element="q48:sendPushResponse" />
+  </wsdl:message>
+  <wsdl:message name="getPushDeliveryStatusSoapIn">
+    <wsdl:part xmlns:q49="http://www.csapi.org/schema/wap" name="getPushDeliveryStatusRequest" element="q49:getPushDeliveryStatusRequest" />
+  </wsdl:message>
+  <wsdl:message name="getPushDeliveryStatusSoapOut">
+    <wsdl:part xmlns:q50="http://www.csapi.org/schema/wap" name="getPushDeliveryStatusResult" element="q50:getPushDeliveryStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="notifyPushDeliveryReceiptSoapIn">
+    <wsdl:part xmlns:q51="http://www.csapi.org/schema/wap" name="notifyPushDeliveryReceiptRequest" element="q51:notifyPushDeliveryReceiptRequest" />
+  </wsdl:message>
+  <wsdl:message name="notifyPushDeliveryReceiptSoapOut" />
+  <wsdl:message name="makeUssdSoapIn">
+    <wsdl:part xmlns:q52="http://www.csapi.org/schema/ussd" name="makeUssdRequest" element="q52:makeUssdRequest" />
+  </wsdl:message>
+  <wsdl:message name="makeUssdSoapOut">
+    <wsdl:part xmlns:q53="http://www.csapi.org/schema/ussd" name="makeUssdResult" element="q53:makeUssdResponse" />
+  </wsdl:message>
+  <wsdl:message name="handleUssdSoapIn">
+    <wsdl:part xmlns:q54="http://www.csapi.org/schema/ussd" name="handleUssdRequest" element="q54:handleUssdRequest" />
+  </wsdl:message>
+  <wsdl:message name="handleUssdSoapOut">
+    <wsdl:part xmlns:q55="http://www.csapi.org/schema/ussd" name="handleUssdResult" element="q55:handleUssdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ussdContinueSoapIn">
+    <wsdl:part xmlns:q56="http://www.csapi.org/schema/ussd" name="ussdContinueRequest" element="q56:ussdContinueRequest" />
+  </wsdl:message>
+  <wsdl:message name="ussdContinueSoapOut">
+    <wsdl:part xmlns:q57="http://www.csapi.org/schema/ussd" name="ussdContinueResult" element="q57:ussdContinueResponse" />
+  </wsdl:message>
+  <wsdl:message name="endUssdSoapIn">
+    <wsdl:part xmlns:q58="http://www.csapi.org/schema/ussd" name="endUssdRequest" element="q58:endUssdRequest" />
+  </wsdl:message>
+  <wsdl:message name="endUssdSoapOut" />
+  <wsdl:message name="notifyUssdEndSoapIn">
+    <wsdl:part xmlns:q59="http://www.csapi.org/schema/ussd" name="notifyUssdEndRequest" element="q59:notifyUssdEndRequest" />
+  </wsdl:message>
+  <wsdl:message name="notifyUssdEndSoapOut" />
+  <wsdl:portType name="cmcc_mas_wbsSoapBinding">
+    <wsdl:operation name="APRegistration">
+      <wsdl:input message="tns:APRegistrationSoapIn" />
+      <wsdl:output message="tns:APRegistrationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="APStatusRep">
+      <wsdl:input message="tns:APStatusRepSoapIn" />
+      <wsdl:output message="tns:APStatusRepSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="APLogOut">
+      <wsdl:input message="tns:APLogOutSoapIn" />
+      <wsdl:output message="tns:APLogOutSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PauseAP">
+      <wsdl:input message="tns:PauseAPSoapIn" />
+      <wsdl:output message="tns:PauseAPSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RecoveryAP">
+      <wsdl:input message="tns:RecoveryAPSoapIn" />
+      <wsdl:output message="tns:RecoveryAPSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="APSvcAuthentic">
+      <wsdl:input message="tns:APSvcAuthenticSoapIn" />
+      <wsdl:output message="tns:APSvcAuthenticSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="APSvcPerfCmd">
+      <wsdl:input message="tns:APSvcPerfCmdSoapIn" />
+      <wsdl:output message="tns:APSvcPerfCmdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="APSvcAlarm">
+      <wsdl:input message="tns:APSvcAlarmSoapIn" />
+      <wsdl:output message="tns:APSvcAlarmSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="APSvcPerfReport">
+      <wsdl:input message="tns:APSvcPerfReportSoapIn" />
+      <wsdl:output message="tns:APSvcPerfReportSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="startNotification">
+      <wsdl:input message="tns:startNotificationSoapIn" />
+      <wsdl:output message="tns:startNotificationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="stopNotification">
+      <wsdl:input message="tns:stopNotificationSoapIn" />
+      <wsdl:output message="tns:stopNotificationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="sendSms">
+      <wsdl:input message="tns:sendSmsSoapIn" />
+      <wsdl:output message="tns:sendSmsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="notifySmsDeliveryStatus">
+      <wsdl:input message="tns:notifySmsDeliveryStatusSoapIn" />
+      <wsdl:output message="tns:notifySmsDeliveryStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReceivedSms">
+      <wsdl:input message="tns:GetReceivedSmsSoapIn" />
+      <wsdl:output message="tns:GetReceivedSmsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSmsDeliveryStatus">
+      <wsdl:input message="tns:GetSmsDeliveryStatusSoapIn" />
+      <wsdl:output message="tns:GetSmsDeliveryStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="notifySmsReception">
+      <wsdl:input message="tns:notifySmsReceptionSoapIn" />
+      <wsdl:output message="tns:notifySmsReceptionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="sendMessage">
+      <wsdl:input message="tns:sendMessageSoapIn" />
+      <wsdl:output message="tns:sendMessageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getMessageDeliveryStatus">
+      <wsdl:input message="tns:getMessageDeliveryStatusSoapIn" />
+      <wsdl:output message="tns:getMessageDeliveryStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getReceivedMessages">
+      <wsdl:input message="tns:getReceivedMessagesSoapIn" />
+      <wsdl:output message="tns:getReceivedMessagesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getMessage">
+      <wsdl:input message="tns:getMessageSoapIn" />
+      <wsdl:output message="tns:getMessageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="notifyMessageReception">
+      <wsdl:input message="tns:notifyMessageReceptionSoapIn" />
+      <wsdl:output message="tns:notifyMessageReceptionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="notifyMessageDeliveryReceipt">
+      <wsdl:input message="tns:notifyMessageDeliveryReceiptSoapIn" />
+      <wsdl:output message="tns:notifyMessageDeliveryReceiptSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getLocation">
+      <wsdl:input message="tns:getLocationSoapIn" />
+      <wsdl:output message="tns:getLocationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getLocationForGroup">
+      <wsdl:input message="tns:getLocationForGroupSoapIn" />
+      <wsdl:output message="tns:getLocationForGroupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="startPeriodicNotification">
+      <wsdl:input message="tns:startPeriodicNotificationSoapIn" />
+      <wsdl:output message="tns:startPeriodicNotificationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EndNotification">
+      <wsdl:input message="tns:EndNotificationSoapIn" />
+      <wsdl:output message="tns:EndNotificationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LocationNotification">
+      <wsdl:input message="tns:LocationNotificationSoapIn" />
+      <wsdl:output message="tns:LocationNotificationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LocationError">
+      <wsdl:input message="tns:LocationErrorSoapIn" />
+      <wsdl:output message="tns:LocationErrorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LocationEnd">
+      <wsdl:input message="tns:LocationEndSoapIn" />
+      <wsdl:output message="tns:LocationEndSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="sendPush">
+      <wsdl:input message="tns:sendPushSoapIn" />
+      <wsdl:output message="tns:sendPushSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getPushDeliveryStatus">
+      <wsdl:input message="tns:getPushDeliveryStatusSoapIn" />
+      <wsdl:output message="tns:getPushDeliveryStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="notifyPushDeliveryReceipt">
+      <wsdl:input message="tns:notifyPushDeliveryReceiptSoapIn" />
+      <wsdl:output message="tns:notifyPushDeliveryReceiptSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="makeUssd">
+      <wsdl:input message="tns:makeUssdSoapIn" />
+      <wsdl:output message="tns:makeUssdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="handleUssd">
+      <wsdl:input message="tns:handleUssdSoapIn" />
+      <wsdl:output message="tns:handleUssdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ussdContinue">
+      <wsdl:input message="tns:ussdContinueSoapIn" />
+      <wsdl:output message="tns:ussdContinueSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="endUssd">
+      <wsdl:input message="tns:endUssdSoapIn" />
+      <wsdl:output message="tns:endUssdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="notifyUssdEnd">
+      <wsdl:input message="tns:notifyUssdEndSoapIn" />
+      <wsdl:output message="tns:notifyUssdEndSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="cmcc_mas_wbsSoapBinding" type="tns:cmcc_mas_wbsSoapBinding">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="APRegistration">
+      <soap:operation soapAction="http://www.csapi.org/service/APRegistration" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="APStatusRep">
+      <soap:operation soapAction="http://www.csapi.org/service/APStatusRep" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="APLogOut">
+      <soap:operation soapAction="http://www.csapi.org/service/APLogOut" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PauseAP">
+      <soap:operation soapAction="http://www.csapi.org/service/PauseAP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecoveryAP">
+      <soap:operation soapAction="http://www.csapi.org/service/RecoveryAP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="APSvcAuthentic">
+      <soap:operation soapAction="http://www.csapi.org/service/APSvcAuthentic" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="APSvcPerfCmd">
+      <soap:operation soapAction="http://www.csapi.org/service/APSvcPerfCmd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="APSvcAlarm">
+      <soap:operation soapAction="http://www.csapi.org/service/APSvcAlarm" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="APSvcPerfReport">
+      <soap:operation soapAction="http://www.csapi.org/service/APSvcPerfReport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="startNotification">
+      <soap:operation soapAction="http://www.csapi.org/service/startNotification" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="stopNotification">
+      <soap:operation soapAction="http://www.csapi.org/service/stopNotification" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendSms">
+      <soap:operation soapAction="http://www.csapi.org/service/sendSms" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="notifySmsDeliveryStatus">
+      <soap:operation soapAction="http://www.csapi.org/service/notifySmsDeliveryStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReceivedSms">
+      <soap:operation soapAction="http://www.csapi.org/service/GetReceivedSms" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSmsDeliveryStatus">
+      <soap:operation soapAction="http://www.csapi.org/service/GetSmsDeliveryStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="notifySmsReception">
+      <soap:operation soapAction="http://www.csapi.org/service/notifySmsReception" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendMessage">
+      <soap:operation soapAction="http://www.csapi.org/service/sendMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMessageDeliveryStatus">
+      <soap:operation soapAction="http://www.csapi.org/service/getMessageDeliveryStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getReceivedMessages">
+      <soap:operation soapAction="http://www.csapi.org/service/getReceivedMessages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMessage">
+      <soap:operation soapAction="http://www.csapi.org/service/getMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="notifyMessageReception">
+      <soap:operation soapAction="http://www.csapi.org/service/notifyMessageReception" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="notifyMessageDeliveryReceipt">
+      <soap:operation soapAction="http://www.csapi.org/service/notifyMessageDeliveryReceipt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLocation">
+      <soap:operation soapAction="http://www.csapi.org/service/getLocation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLocationForGroup">
+      <soap:operation soapAction="http://www.csapi.org/service/getLocationForGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="startPeriodicNotification">
+      <soap:operation soapAction="http://www.csapi.org/service/startPeriodicNotification" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EndNotification">
+      <soap:operation soapAction="http://www.csapi.org/service/EndNotification" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LocationNotification">
+      <soap:operation soapAction="http://www.csapi.org/service/LocationNotification" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LocationError">
+      <soap:operation soapAction="http://www.csapi.org/service/LocationError" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LocationEnd">
+      <soap:operation soapAction="http://www.csapi.org/service/LocationEnd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendPush">
+      <soap:operation soapAction="http://www.csapi.org/service/sendPush" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPushDeliveryStatus">
+      <soap:operation soapAction="http://www.csapi.org/service/getPushDeliveryStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="notifyPushDeliveryReceipt">
+      <soap:operation soapAction="http://www.csapi.org/service/notifyPushDeliveryReceipt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="makeUssd">
+      <soap:operation soapAction="http://www.csapi.org/service/makeUssd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="handleUssd">
+      <soap:operation soapAction="http://www.csapi.org/service/handleUssd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ussdContinue">
+      <soap:operation soapAction="http://www.csapi.org/service/ussdContinue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="endUssd">
+      <soap:operation soapAction="http://www.csapi.org/service/endUssd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="notifyUssdEnd">
+      <soap:operation soapAction="http://www.csapi.org/service/notifyUssdEnd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="cmcc_mas_wbsSoapBinding1" type="tns:cmcc_mas_wbsSoapBinding">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="APRegistration">
+      <soap12:operation soapAction="http://www.csapi.org/service/APRegistration" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="APStatusRep">
+      <soap12:operation soapAction="http://www.csapi.org/service/APStatusRep" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="APLogOut">
+      <soap12:operation soapAction="http://www.csapi.org/service/APLogOut" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PauseAP">
+      <soap12:operation soapAction="http://www.csapi.org/service/PauseAP" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecoveryAP">
+      <soap12:operation soapAction="http://www.csapi.org/service/RecoveryAP" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="APSvcAuthentic">
+      <soap12:operation soapAction="http://www.csapi.org/service/APSvcAuthentic" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="APSvcPerfCmd">
+      <soap12:operation soapAction="http://www.csapi.org/service/APSvcPerfCmd" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="APSvcAlarm">
+      <soap12:operation soapAction="http://www.csapi.org/service/APSvcAlarm" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="APSvcPerfReport">
+      <soap12:operation soapAction="http://www.csapi.org/service/APSvcPerfReport" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="startNotification">
+      <soap12:operation soapAction="http://www.csapi.org/service/startNotification" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="stopNotification">
+      <soap12:operation soapAction="http://www.csapi.org/service/stopNotification" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendSms">
+      <soap12:operation soapAction="http://www.csapi.org/service/sendSms" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="notifySmsDeliveryStatus">
+      <soap12:operation soapAction="http://www.csapi.org/service/notifySmsDeliveryStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReceivedSms">
+      <soap12:operation soapAction="http://www.csapi.org/service/GetReceivedSms" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSmsDeliveryStatus">
+      <soap12:operation soapAction="http://www.csapi.org/service/GetSmsDeliveryStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="notifySmsReception">
+      <soap12:operation soapAction="http://www.csapi.org/service/notifySmsReception" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendMessage">
+      <soap12:operation soapAction="http://www.csapi.org/service/sendMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMessageDeliveryStatus">
+      <soap12:operation soapAction="http://www.csapi.org/service/getMessageDeliveryStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getReceivedMessages">
+      <soap12:operation soapAction="http://www.csapi.org/service/getReceivedMessages" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMessage">
+      <soap12:operation soapAction="http://www.csapi.org/service/getMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="notifyMessageReception">
+      <soap12:operation soapAction="http://www.csapi.org/service/notifyMessageReception" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="notifyMessageDeliveryReceipt">
+      <soap12:operation soapAction="http://www.csapi.org/service/notifyMessageDeliveryReceipt" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLocation">
+      <soap12:operation soapAction="http://www.csapi.org/service/getLocation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLocationForGroup">
+      <soap12:operation soapAction="http://www.csapi.org/service/getLocationForGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="startPeriodicNotification">
+      <soap12:operation soapAction="http://www.csapi.org/service/startPeriodicNotification" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EndNotification">
+      <soap12:operation soapAction="http://www.csapi.org/service/EndNotification" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LocationNotification">
+      <soap12:operation soapAction="http://www.csapi.org/service/LocationNotification" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LocationError">
+      <soap12:operation soapAction="http://www.csapi.org/service/LocationError" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LocationEnd">
+      <soap12:operation soapAction="http://www.csapi.org/service/LocationEnd" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendPush">
+      <soap12:operation soapAction="http://www.csapi.org/service/sendPush" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPushDeliveryStatus">
+      <soap12:operation soapAction="http://www.csapi.org/service/getPushDeliveryStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="notifyPushDeliveryReceipt">
+      <soap12:operation soapAction="http://www.csapi.org/service/notifyPushDeliveryReceipt" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="makeUssd">
+      <soap12:operation soapAction="http://www.csapi.org/service/makeUssd" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="handleUssd">
+      <soap12:operation soapAction="http://www.csapi.org/service/handleUssd" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ussdContinue">
+      <soap12:operation soapAction="http://www.csapi.org/service/ussdContinue" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="endUssd">
+      <soap12:operation soapAction="http://www.csapi.org/service/endUssd" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="notifyUssdEnd">
+      <soap12:operation soapAction="http://www.csapi.org/service/notifyUssdEnd" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+</wsdl:definitions>

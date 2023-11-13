@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:i0="http://www.csapi.org/service" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import namespace="http://www.csapi.org/service" location="http://localhost:65189/SendLMS.asmx?wsdl=wsdl1" />
+  <wsdl:types>
+    <s:schema targetNamespace="http://tempuri.org/">
+      <s:import schemaLocation="http://localhost:65189/SendLMS.asmx?schema=schema1" namespace="http://www.csapi.org/schema/ap" />
+      <s:import schemaLocation="http://localhost:65189/SendLMS.asmx?schema=schema2" namespace="http://www.csapi.org/schema/common/v2_0" />
+      <s:import schemaLocation="http://localhost:65189/SendLMS.asmx?schema=schema3" namespace="http://www.csapi.org/schema/notification" />
+      <s:import schemaLocation="http://localhost:65189/SendLMS.asmx?schema=schema4" namespace="http://www.csapi.org/schema/sms" />
+      <s:import schemaLocation="http://localhost:65189/SendLMS.asmx?schema=schema5" namespace="http://www.csapi.org/schema/mms" />
+      <s:import schemaLocation="http://localhost:65189/SendLMS.asmx?schema=schema6" namespace="http://www.csapi.org/schema/location" />
+      <s:import schemaLocation="http://localhost:65189/SendLMS.asmx?schema=schema7" namespace="http://www.csapi.org/schema/wap" />
+      <s:import schemaLocation="http://localhost:65189/SendLMS.asmx?schema=schema8" namespace="http://www.csapi.org/schema/ussd" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:service name="SendLMS">
+    <wsdl:port name="cmcc_mas_wbsSoapBinding" binding="i0:cmcc_mas_wbsSoapBinding">
+      <soap:address location="http://localhost:65189/SendLMS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="cmcc_mas_wbsSoapBinding1" binding="i0:cmcc_mas_wbsSoapBinding1">
+      <soap12:address location="http://localhost:65189/SendLMS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

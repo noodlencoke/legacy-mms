@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://www.csapi.org/schema/sms" elementFormDefault="qualified" targetNamespace="http://www.csapi.org/schema/sms" id="schema4" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="sendSmsRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="ApplicationID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" form="unqualified" name="DestinationAddresses" nillable="true" type="xs:anyURI" />
+        <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="ExtendCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="Message" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="MessageFormat" nillable="true" type="tns:MessageFormat" />
+        <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="SendMethod" nillable="true" type="tns:SendMethodType" />
+        <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="DeliveryResultRequest" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:simpleType name="MessageFormat">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ASCII" />
+      <xs:enumeration value="UCS2" />
+      <xs:enumeration value="GB18030" />
+      <xs:enumeration value="GB2312" />
+      <xs:enumeration value="Binary" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SendMethodType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Normal" />
+      <xs:enumeration value="Instant" />
+      <xs:enumeration value="Long" />
+      <xs:enumeration value="Structured" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="sendSmsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="RequestIdentifier" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="notifySmsDeliveryStatusRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="RequestIdentifier" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" form="unqualified" name="DeliveryInformation" nillable="true" type="tns:DeliveryInformation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="DeliveryInformation">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="Address" nillable="true" type="xs:anyURI" />
+      <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="DeliveryStatus" nillable="true" type="tns:DeliveryStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="DeliveryStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Delivered" />
+      <xs:enumeration value="DeliveryUncertain" />
+      <xs:enumeration value="DeliveryImpossible" />
+      <xs:enumeration value="MessageWaiting" />
+      <xs:enumeration value="DeliveryToTerminal" />
+      <xs:enumeration value="DeliveryNotificationNotSupported" />
+      <xs:enumeration value="KeyWordFilterFailed" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="GetReceivedSmsRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="ApplicationID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReceivedSmsResponse" type="tns:ArrayOfSMSMessage" />
+  <xs:complexType name="ArrayOfSMSMessage">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" form="unqualified" name="item" type="tns:SMSMessage" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SMSMessage">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="SmsServiceActivationNumber" nillable="true" type="xs:anyURI" />
+      <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="SenderAddress" nillable="true" type="xs:anyURI" />
+      <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="MessageFormat" nillable="true" type="tns:MessageFormat" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetSmsDeliveryStatusRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="ApplicationID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="RequestIdentifier" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSmsDeliveryStatusResponse" type="tns:ArrayOfDeliveryInformation" />
+  <xs:complexType name="ArrayOfDeliveryInformation">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" form="unqualified" name="item" type="tns:DeliveryInformation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="notifySmsReceptionRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="Message" nillable="true" type="tns:SMSMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
