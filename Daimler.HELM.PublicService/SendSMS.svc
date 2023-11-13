@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="Daimler.HELM.PublicService.SendSMSHandler" CodeBehind="SendSMS.svc.cs" %>
